@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - blog - {{ meta.title }}{% endblock %}
+{% block css %}/assets/css/blog.css{% endblock %}
+{% block content %}
+    <div class="metadata">
+        <h1><a href="/blog">&lt;</a> {{meta.title}}</h1>
+        <p>{{meta.desc}}</p>
+        <span class="subtext">written on {{meta.date}}, {{meta.year}}</span>
+        <hr class="important">
+    </div>
+    <article class="blog-post">{{ article | safe }}</article>
+    <div class="comments">
+        <hr class="important">
+        <h1>comments!</h1>
+        <div id="c_widget"></div>
+    </div>
+    <script src="/assets/js/comments.js"></script>
+{% endblock %}

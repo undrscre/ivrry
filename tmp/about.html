@@ -1,0 +1,65 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - about{% endblock %}
+{% block css %}/assets/css/about.css{% endblock %}
+{% block content %}
+	<fieldset>
+		<legend>about me! or. my profile i guess</legend>
+		<img src="/assets/images/about.gif" alt="about me ^_^" style="width:100%; image-rendering:pixelated;">
+		<p style="margin-bottom:0;">
+			this page is dedicated to tell things all about me, 
+			whether it be my interests, contacts or <s title="moved to /buttons!">friends</s> :)
+		</p>
+	</fieldset>
+	<fieldset>
+		<legend>about.html</legend>
+		<h2>who are you really?</h2>
+		<img src="/assets/images/blabber.GIF" alt="a picture of my fursona yapping" style="width:120px; float:right;" title="my fursona! he's called niko">
+		<p>
+			i'm ivory willows! <span class="subtext">fka niko,</span>
+			i'm a furry, programmer, musician and video game lover who likes
+			to do all sorts of things <span class="subtext">(aslong as it's in my interests)</span>
+		</p>
+		<p>
+			i have been dabbling in'n'out of programming for about...<br> 2 years now!
+			but i've never really gotten that good at them haha :_), although
+			i have some experience in languages like js, python, gdscript
+			and <i>barely</i> in rust, c++ and go
+		</p>
+		<p>
+			i also love old video games and messing around with programs in unexpected ways :3c
+			..and for once every blood moon, i like to draw and make music<br>
+			and this site is a way for me to showcase all of that!
+		</p>
+		<p>
+			i don't really have much to say about me as a person that hasn't
+			already been said here, but feel free to contact me anytime! 
+			i won't bite ^_^ <br><span class="subtext">unless you're evil.. in which that case i will bite!! >:(</span>
+		</p>
+	</fieldset>
+	<fieldset>
+		<legend>contact!</legend>
+		<div class="contacts">
+			<a href="https://discord.com/users/1121768865072947282" title="@undrscre">discord</a>
+			<a href="/index.html#chatbox" title="this feature isn't available yet :(">webchat!</a>
+			<a href="https://wolfdo.gg/@ivory" title="i'm no longer active here">fediverse</a>
+			<!-- <a href="https://bsky.app/profile/bestie.nkko.me" title="also not active">bluesky</a> -->
+			<!-- <a href="https://twitter.com/@_undrscre" title="shitposting only"><s>twitter</s></a> -->
+		</div>
+		<p>you could contact me through any one of these platforms, ordered from most active to least</p>	
+	</fieldset>
+	<fieldset>
+		<legend>albums i like</legend>
+		<div class="albums">
+			{% for album in albums %}
+			<a href="{{album.url}}" class="album" target="_blank">
+				<img class="album-art" src="{{album.artwork}}" loading="lazy" 
+				data-title="<b>{{album.title}}</b> <br> by {{album.artist}}" 
+				title="{{album.title}} by {{album.artist}}">
+			</a>
+			{% endfor %}
+		</div>
+		<p>click on each one of them to listen to them on soundcloud!</p>
+	</fieldset>
+	
+	<img src="/assets/images/bounceballoons.gif" alt="a bunch of balloons in a line" class="balloons">
+{% endblock %}

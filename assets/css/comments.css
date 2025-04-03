@@ -1,0 +1,196 @@
+/*
+    Below you will be able to freely customize every aspect of the comment widget.
+    Most aspects of the widget are 100% able to be customized in CSS, but for strong structural changes,
+    you may have to edit the JavaScript file.
+
+    These are all the classes and IDs at your disposal!
+    Classes have a c- at the start and IDs have a c_
+    You don't need every single one for a good theme, but I tried to give as many options as possible!
+*/
+/*
+    Containers:
+        #c_widget - The container <div> for the entire widget
+        #c_inputArea - The wrapper <div> around the form
+        #c_container - The wrapper <div> around all the comments
+
+    The input form:
+        #c_form - The whole input <form>
+        #c_widgetTitle - The <h2> title at the top of the form
+
+        .c-inputWrapper- All <div> wrappers for each label/input pair
+        .c-label - All <label>s
+        .c-input - All <input>s
+
+        #c_nameWrapper - The wrapper <div> for the name field
+        .c-nameLabel - The <label> for the name field
+        .c-nameInput - The <input> for the name field
+
+        #c_websiteWrapper - The wrapper <div> for the website field
+        .c-websiteLabel - The <label> for the website field
+        .c-websiteInput - The <input> for the website field
+
+        #c_textWrapper - The wrapper <div> for the text field
+        .c-textLabel - The <label> for the text field
+        .c-textInput - The <input> for the text field
+
+        #c_submitButton - The submit button (It's an <input> element with a type of "submit")
+        #c_replyingText - The text <span> that displays when a user is replying to a comment
+
+    The comment section:
+        .c-comment - All comment <div>s
+        .c-reply - All reply <div>s (contained within parent comment <div>s)
+        .c-replyContainer - The wrapper <div> for all replies
+        .c-name - The name of the person submitting the comment/reply (an <h3> element)
+        .c-timestamp - The timestamp of when the comment/reply was made (a <span> element)
+        .c-site - The website linked at the top of the comment/reply (an <a> element)
+        .c-text - The actual text body of the comment/reply (a <p> element)
+        .c-replyButton - All reply <button>s
+        .c-expandButton - The <button>s to reveal/hide replies (These only show if s_collapsedReplies is set to true in the JS)
+        
+        #c_pagination - The <div> wrapper for the pagination at the bottom (Only shows if there's more than one page)
+        .c-paginationButton - Both left and right directional <button>s
+        #c_leftButton - The left <button>
+        #c_rightButton - The right <button>
+*/
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap:.5rem;
+}
+#c_widget, #c_container {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+/* Main */
+#c_nameWrapper {
+    display: flex;
+    gap:5px;
+    & > input {
+        flex-grow:1;
+    }
+}
+.c-text {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.c-input {
+    padding: 5px;
+    background-color: transparent;
+    color: #a6adc8;
+    font-size: 16px;
+    border: 1px dashed #343541;
+    border-bottom: 1px solid #585b70;
+    font-family: Inconsolata, monospace;
+}
+#c_form {
+    display: flex;
+    position: relative;
+    perspective: 500px;
+    flex-direction: column;
+    gap: 5px;
+}
+.c-comment {
+    border: 1px solid #585b70;
+    padding: 1rem;
+}
+.c-replyContainer {
+    border: 1px dashed #585b70;
+    padding: 1rem;
+}
+.c-top {
+    display: flex;
+    align-items: center;
+}
+/* fucked up illegal */
+.c-timestamp {
+    display: inline-block;
+    margin-left: auto;
+}
+.c-top:has(.c-site) .c-timestamp::after {
+    content: "•";
+}
+.c-comment:has(.c-replyContainer[style="display: block;"]) .c-expandButton {
+    font-weight: bold;
+}
+.c-textInput {
+    width: 100%;
+    resize: vertical;
+}
+#c_submitButton:hover {
+    transform: scale(.9);
+}
+#c_submitButton {
+    padding: 5px;
+    transition: transform .25s;
+    background-color: #a6d189;
+    color: #11111b;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    margin-left: auto;
+    bottom:-45px;
+    right: -30px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: rotateY(-35deg) rotateX(25deg);
+    font-size: 32px;
+    font-family: Inconsolata, monospace;   
+}
+.c-replyButton {
+    padding: 5px;
+    background-color: #8aadf4;
+    color: #11111b;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    font-size: 16px;
+    font-family: Inconsolata, monospace;   
+}
+.c-expandButton {
+    padding: 5px;
+    background-color: #f5a97f;
+    color: #11111b;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    /* margin-left: 5px; */
+    font-size: 16px;
+    font-family: Inconsolata, monospace;   
+}
+#c_submitButton:disabled {
+    background-color: #a6d189;
+    color: #11111b;
+    opacity: 0.8;
+    cursor:not-allowed;
+}
+
+#c_submitButton:disabled::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top:0;
+    left:0;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        #f9e2af6b,
+        #f9e2af6b 5px,
+        #0000006b 5px,
+        #0000006b 10px
+    );
+    animation: weee 2s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes weee {
+    from {
+        background-position: 90px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}

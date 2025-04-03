@@ -1,0 +1,96 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - welcome{% endblock %}
+{% block css %}assets/css/index.css{% endblock %}
+{% block content %}
+	<fieldset>
+		<legend>welcome to my site</legend>
+		<img src="assets/images/title.gif" alt="ivrry.nekoweb.org" class="title" style="width:100%; image-rendering:pixelated;">
+		<div>
+			<p style="margin-bottom:0; text-align:justify;">
+				hello world! i'm ivy and this is my humble abode! ^_^
+			</p>
+			<p>
+				this site was created to serve the purpose as 
+				my little dumping grounds for whatever i do on the 
+				interwebs :3
+			</p>
+			<p>
+				as i'm sure you're aware right now there's
+				not much here, but i'm working on it!
+				most links will be broken because i haven't
+				implemented those yet so. sorry! haha
+				please be patient with me as i try to make
+				this site as cool as possible!
+			</p>
+			<p>made with love and spite, by ivory willows!!</p>
+		</div>
+	</fieldset>
+	<fieldset class="thoughts">
+		<legend>how i'm feeling rn:</legend>
+		<div class="thoughts-sidebar">
+			<img src="assets/images/pfp.png" alt="ivy's pfp" class="pfp">
+			<!-- <a class="past-thoughts" href="thoughts.html">past thoughts</a> -->
+		</div>
+		<div class="thought-content">
+			<span>
+				<h2 class="splash">Ivory Willows</h2>
+				<span id="thoughts-feeling"></span><span class="subtext" id="thoughts-timestamp">loading..</span>
+			</span>
+			<p id="thoughts-content">
+				loading status cafe...
+				<noscript>
+					<br>if you see this, javascript is disabled! please enable it :)
+				</noscript>
+			</p>
+		</div>
+		<img src="assets/images/balloon.gif" alt="rainbow hot air balloon" class="deco" style="height:80px; margin-left:auto;">
+	</fieldset>
+	<fieldset class="lastfm" style="display: flex; gap: 1rem;">
+		<noscript>
+			<p>you need javascript enabled to see what i'm listening to!</p>
+			<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>
+			<p>but if u don't wanna, that's ok :)
+		</noscript>
+		<img src="assets/images/cd.gif" alt="cd" class="cd deco">
+		<template id="lastfm-template">
+			<legend></legend>
+			<img class="listening-art" alt="album art">
+			<div style="position: relative; z-index:5;">
+				<!-- todo: refactor because holy hell -->
+				<h1 class="listening-title" style="width: 20ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></h1>
+				<p style="width: 40ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+					on <b class="splash album-name"></b>
+					<br>by <b class="splash artist-name"></b>
+				</p>
+				<br>
+				<span class="lastfm-link"></span>
+			</div>
+		</template>
+	</fieldset>
+	<fieldset id="chatbox">
+		<legend>talk to people!</legend>
+		<div id="webchat-channels">
+			<button id="webchat-global">#global</button>
+			<button id="webchat-local">#local</button>
+		</div>
+		<div id="webchat-chatbox">
+		<span><b class="splash">SYSTEM:</b> write something to enter the chatbox ^_^</span>
+		</div>
+		<div class="webchat-controls">
+			<input type="text" id="webchat-mesgbox" placeholder="message!">
+			<input type="text" id="webchat-namebox" placeholder="name (optional)">
+			<button id="webchat-sendbtn">submit</button>
+		</div>
+	</fieldset>	
+	<div class="webrings" style="display:flex; gap: 1rem;">
+		<iframe id="bucket-webring" style="flex-grow:1;height: 3rem; border: none;" src="/assets/html/bucket.html"></iframe> 
+		<div class="ssgring">
+			<a href="https://jbcarreon123.nekoweb.org/webrings/ssgring/redirect?slug=ivrry&way=prev">&lt; prev</a>
+			<a href="https://jbcarreon123.nekoweb.org/webrings/ssgring/redirect?slug=ivrry&way=prev">ssgring</a>
+			<a href="https://jbcarreon123.nekoweb.org/webrings/ssgring/redirect?slug=ivrry&way=next">next &gt;</a>
+		</div>
+	</div>
+	<img src="assets/images/lights.gif" alt="lights" class="lights">
+	<script src="assets/js/index.js"></script>
+	<!-- <script src="/assets/js/webchat.js"></script> -->
+{% endblock %}

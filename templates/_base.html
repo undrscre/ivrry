@@ -1,0 +1,73 @@
+<html>
+
+<head>
+	<meta charset='utf-8'> 
+	<meta name="viewport" content="initial-scale=1,width=device-width">
+	<title>{% block title %}ivy's home{% endblock %}</title>
+	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/assets/css/global.css">
+	<link rel="stylesheet" type="text/css" href="{% block css %}{% endblock %}">
+</head>
+
+<body>
+	<div class="tooltip-container">
+		<div id="tooltip">
+			
+		</div>
+	</div>
+	<header style="width:155px;">
+		<h1 class="splash">ivy's home</h1>
+		<ul>
+			<li><span>me: </span>
+				<ul>
+					<li><a href="/index.html">home</a></li>
+					<li><a href="/about.html">about</a></li>
+					<li><a href="/blog">blog</a></li>
+					<!-- <li><a href="/projects.html">projects</a></li> -->
+					<li><a href="https://nekoweb.org/follow/ivrry">follow</a></li>
+				</ul>
+			</li>
+			<li><span>friends: </span>
+				<ul>
+					<li><a href="https://nat.envs.sh">natalie</a></li>
+					<li><a href="https://suni.me">sundaedog</a></li>
+					<li><a href="https://beepi.ng">unnick</a></li>
+					<li><a href="/buttons.html">buttons!</a></li>
+				</ul>
+			</li>
+		</ul>
+		<marquee class="deco" behavior="scroll" direction="left" scrollamount="8" class="marquee" style="width:100%;">
+			<!-- <img src="/assets/images/stamps/" alt="a stamp" class="stam["> -->
+			<img src="/assets/images/stamps/polybius.gif" alt="polybius stamp" class="stamp">
+			<img src="/assets/images/stamps/awesome.gif" alt="awesome stamp" class="stamp">
+			<img src="/assets/images/stamps/hell.png" alt="hell stamp" class="stamp">
+			<img src="/assets/images/stamps/ufo.gif" alt="ufo stamp" class="stamp">
+			<img src="/assets/images/stamps/stamp-brokendreams.gif" alt="a stamp" class="stamp">
+			<img src="/assets/images/stamps/stamp-bars.png" alt="colored bars stamp" class="stamp"> 
+			<img src="/assets/images/stamps/stamp-happyface2.png" alt="^_^ stamp" class="stamp"> 
+			<img src="/assets/images/stamps/stamp-albuquerque.gif" alt="a stamp featuring the entirety of albuquerque" class="stamp"> 
+		</marquee>
+		<fieldset style="padding-top: 10px;">
+			<legend>stats</legend>
+			<span>&nbsp;visitors: <b id="visitors">0000</b></span><br>
+			<span>followers: <b id="followers">0000</b></span><br>
+			<!-- <span>&nbsp;&nbsp;updated: <b id="updated">?/??</b></span> -->
+		</fieldset>
+		<button class="niko-button deco">
+			<img src="/assets/images/niko.png" class="niko-jumping" 
+			title="click on him :)">
+		</button>
+	</header>
+	<div class="content">
+		{% block content %}{% endblock %}
+	</div>
+	<div class="ads" style="width:155px;">
+		<iframe class="deco" width="155" height="155" style="border:none" src="https://rice.nekoweb.org/nekolink.html"></iframe>
+		<iframe class="deco" width="155" height="465" style="border:none" src="https://dogspit.nekoweb.org/sidelink.html" name="sidelink"></iframe>
+		<iframe class="deco" width="155" height="155" style="border:none" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>
+		<span><input type="checkbox" id="deco" title="minimize the clutter!!"></span>
+	</div>
+	<script src="/assets/js/global.js"></script>
+</body>
+
+</html>

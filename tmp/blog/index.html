@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - blog{% endblock %}
+{% block css %}/assets/css/blog.css{% endblock %}
+{% block content %}
+<fieldset style="position: relative;">
+	<legend>i will work on this :P</legend>
+	<img src="/assets/images/blog.gif" alt="my blog!" style="width:100%; image-rendering:pixelated;">
+	<p style="width: 60ch">welcome to my <span class="subtext">[public]</span> journal! 
+		i'm mostly gonna use this space as a way to write out what i have in mind 
+		..or just microblog like crazy as if it's twitter 2 o_0
+		either way i hope you have fun reading ^_^</p>
+	<img src="/assets/images/nikoshuffle.gif" class="meow deco">
+</fieldset>
+<div class="post-group">
+	<h1 style="margin-top: 1rem;">2025</h1>
+	{% for post in posts %}
+		<fieldset>
+			<!-- i have no idea why i have to put .html because i have nice links on but it works -->
+			<h2><a href="{{ post.slug }}.html">{{ post.meta.title }}</a></h2>
+			<p>{{ post.meta.desc }}</p>
+			<span>
+				<span class="subtext">{{ post.meta.date }}/{{post.meta.year}} / </span>
+				<span class="tags">
+					tags:
+					{% for tag in post.meta["blog-tags"] %}
+						<span class="splash">{{ tag }}</span>
+					{% endfor %}
+				</span>
+			</span>
+		</fieldset>
+    {% endfor %}
+</div>
+<img src="/assets/images/firewal.gif" alt="wall of fire" style="margin-top: 1rem;">
+{% endblock %}

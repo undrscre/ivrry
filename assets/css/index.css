@@ -1,0 +1,76 @@
+.lastfm {
+	position:relative;
+	overflow: clip;
+}
+.listening-art {
+	width: 120px;
+	height: 120px;
+}
+.lastfm-link a {
+	color: #a6e3a1;
+}
+.cd {
+	position: absolute;
+	scale: 1.5;
+	right: 0px;
+	top:0;
+}
+
+.thoughts {
+	display: flex;
+	gap: 1rem;
+	padding:1rem;
+	text-align: justify;
+	border: 1px solid #585b70;
+	& > .thought-content {
+		& > p {
+			margin: 0;
+			margin-top: .5rem;
+			&:first-of-type {
+				margin-top: 1rem;
+			}
+		}
+		& > span > h2 {
+			margin: 0;
+			width: fit-content;
+		}
+	}
+	& > .thoughts-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		justify-content: right;
+		& > .pfp {
+			width: 70px;
+			height: 70px;
+		}
+		& > a {
+			color: #f38ba8;
+		}
+	}
+}
+
+.ssgring {
+	display: flex;
+	font-size: 20px;
+	flex-grow: 1;
+	border: 1px solid #585b70;
+	padding-left: 10px;
+	padding-right: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.ssgring a {
+	color: #89b4fa;
+}
+
+.awdbwb {
+	width:55ch;
+	flex-shrink: 1;
+	text-align: justify;
+}
+
+.updates {
+	flex-grow:1;
+}

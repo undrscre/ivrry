@@ -1,0 +1,73 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - buttons{% endblock %}
+{% block css %}/assets/css/buttons.css{% endblock %}
+{% block content %}
+    <fieldset>
+        <legend>my button collection</legend>
+        <img src="/assets/images/buttons.gif" alt="buttons" style="width:100%; image-rendering:pixelated;">
+        <p style="margin-bottom:0;">
+            this page is dedicated for my button collection ^_^ if you want to get your site linked here please lmk :D
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>my friends!</legend>
+        <div class="buttons">
+            {% for button in buttons.friends %}
+            <a href="{{button.url}}" class="button" target="_blank">
+                <img class="button-art" src="{{button.art}}" loading="lazy" 
+                data-title="{{button.name}} <br> <i class='subtext'>{{button.url}}</i>" 
+                title="{{button.name}} {{button.url}}"></a>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>sites i think you should visit</legend>
+        <div class="buttons">
+            {% for button in buttons.recco %}
+            <a href="{{button.url}}" class="button" target="_blank">
+                <img class="button-art" src="{{button.art}}" loading="lazy" 
+                data-title="{{button.name}} <br> <i class='subtext'>{{button.url}}</i>" 
+                title="{{button.name}} {{button.url}}"></a>
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>other collection</legend>
+        <div class="buttons">
+            {% for button in buttons.others %}
+                <img class="button" src="{{button.art}}" loading="lazy" 
+                data-title="{{button.name}}" 
+                title="{{button.name}}">
+            {% endfor %}
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>my button :)</legend>
+        <div style="display: flex; gap: 1rem">
+            <button id="button-copier">
+                <img src="/assets/images/button.png">
+            </button>
+            <p>click on the button to copy!</p>
+        </div>
+<pre><code>&lt;a href="https://ivrry.nekoweb.org" class="button" target="_blank"&gt;
+    &lt;img src="https://ivrry.nekoweb.org/assets/images/button.png" alt="ivrry"&gt;
+&lt;/a&gt;</code></pre>
+    <script>
+        const button = document.getElementById("button-copier");
+
+        button.addEventListener('click', async () => {
+            try {
+            await navigator.clipboard.writeText(
+                `<a href="https://ivrry.nekoweb.org" class="button" target="_blank">
+        <img src="https://ivrry.nekoweb.org/assets/images/button.png" alt="ivrry">
+    </a>`
+            );
+            console.log('button code copied to clipboard');
+            alert('button code copied to clipboard!');
+            } catch (err) {
+            console.error('Failed to copy: ', err);
+            }
+        });
+    </script>
+    </fieldset>
+{% endblock %}
