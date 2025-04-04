@@ -8,7 +8,3 @@ pub struct IndexPage {}
 pub async fn page() -> impl Reply {
     IndexPage {}
 }
-
-pub fn render() -> String {
-    IndexPage {}.render().unwrap()
-}
