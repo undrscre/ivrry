@@ -5,6 +5,17 @@
 	<fieldset>
 		<legend>my projects :)</legend>
 		<img src="assets/images/projects.gif" alt="projects" style="width:100%; image-rendering:pixelated;">
+		<p>
+			this page contains all my publics repository in which you can find in my <br>
+			<a href="https://github.com/undrscre">github profile</a>, most of them aren't impressive
+			but they're here for future keeping
+		</p>
 	</fieldset>
-	<h1>working on it i promise</h1>
+	{% for repo in repos %}
+        <fieldset>
+			<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
+			<p>{{ repo.description_or_default() }}<br>
+			<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+		</fieldset>
+    {% endfor %}
 {% endblock %}
