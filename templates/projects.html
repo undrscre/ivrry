@@ -1,6 +1,6 @@
 {% extends "_base.html" %}
 {% block title %}ivy's home - about{% endblock %}
-{% block css %}assets/css/about.css{% endblock %}
+{% block css %}assets/css/projects.css{% endblock %}
 {% block content %}
 	<fieldset>
 		<legend>my projects :)</legend>
@@ -12,10 +12,27 @@
 		</p>
 	</fieldset>
 	{% for repo in repos %}
-        <fieldset>
-			<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
-			<p>{{ repo.description_or_default() }}<br>
-			<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+		{% if loop.last %}
+		<div style="position: relative;">
+			<fieldset style="display: flex; overflow: hidden; position: relative;">
+				<div>
+					<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
+					<p>{{ repo.description_or_default() }}<br>
+					<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+				</div>
+				<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image_or_default() }}">
+			</fieldset>
+			<img src="/assets/images/fall.gif" class="deco" style="position: absolute; bottom:-380px; width: 300; right:-50px; pointer-events: none;">
+		</div>
+		{% else %}
+		<fieldset style="display: flex; overflow: hidden; position: relative;">
+			<div>
+				<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
+				<p>{{ repo.description_or_default() }}<br>
+				<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+			</div>
+			<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image_or_default() }}">
 		</fieldset>
+		{% endif %}
     {% endfor %}
 {% endblock %}

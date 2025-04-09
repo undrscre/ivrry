@@ -16,6 +16,7 @@ pub struct Repository {
     html_url: String,
     language: Option<String>,
     stargazers_count: u32,
+    image: Option<String>
 }
 
 impl Repository {
@@ -25,6 +26,10 @@ impl Repository {
 
     pub fn language_or_default(&self) -> &str {
         self.language.as_deref().unwrap_or("Unknown")
+    }
+    
+    pub fn image_or_default(&self) -> &str {
+        self.image.as_deref().unwrap_or("")
     }
 }
 
@@ -38,8 +43,16 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
 
     let text = response.text().await?;
     // println!("Raw response: {}", text);
-
-    let result = serde_json::from_str::<Vec<Repository>>(&text).unwrap();
+    let repos: Vec<Repository> = serde_json::from_str(&text).unwrap();
+    let result = repos
+        .into_iter()
+        .map(|mut repo| {
+            let og_image_url = format!("https://opengraph.githubassets.com/1/undrscre/{}", repo.name);
+            repo.image = Some(og_image_url);
+            repo
+        })
+        .collect();
+    
     Ok(result)
 }
 
