@@ -1,10 +1,11 @@
-use askama_warp::Template;
+use crate::get_env;
+use minijinja::context;
 use warp::reply::Reply;
 
-#[derive(Template)]
-#[template(path="index.html")]
-pub struct IndexPage {}
-
 pub async fn page() -> impl Reply {
-    IndexPage {}
+    let env = get_env();
+    let tmpl = env.get_template("index").unwrap();
+    let html = tmpl.render(context!{}).unwrap();
+
+    warp::reply::html(html)
 }

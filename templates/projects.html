@@ -14,24 +14,24 @@
 	{% for repo in repos %}
 		{% if loop.last %}
 		<div style="position: relative;">
-			<fieldset style="display: flex; overflow: hidden; position: relative;">
+			<fieldset style="display: flex; overflow: hidden; position: relative; border-style: dashed;">
 				<div>
 					<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
-					<p>{{ repo.description_or_default() }}<br>
-					<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+					<p>{{ repo.description or "No description" }}<br>
+					<span class="subtext">written in {{ repo.language or "Unknown"}} / {{ repo.stargazers_count }} stars. </span></p>
 				</div>
-				<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image_or_default() }}">
+				<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image or '' }}">
 			</fieldset>
 			<img src="/assets/images/fall.gif" class="deco" style="position: absolute; bottom:-380px; width: 300; right:-50px; pointer-events: none;">
 		</div>
 		{% else %}
-		<fieldset style="display: flex; overflow: hidden; position: relative;">
+		<fieldset style="display: flex; overflow: hidden; position: relative; border-style: dashed;">
 			<div>
 				<h1><a href="{{repo.html_url}}">{{repo.name}}</a></h1>
-				<p>{{ repo.description_or_default() }}<br>
-				<span class="subtext">written in {{ repo.language_or_default() }} / {{ repo.stargazers_count }} stars. </span></p>
+				<p>{{ repo.description or "No description" }}<br>
+				<span class="subtext">written in {{ repo.language or "Unknown"}} / {{ repo.stargazers_count }} stars. </span></p>
 			</div>
-			<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image_or_default() }}">
+			<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image or '' }}">
 		</fieldset>
 		{% endif %}
     {% endfor %}

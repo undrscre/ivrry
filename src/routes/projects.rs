@@ -1,15 +1,16 @@
-use askama_warp::Template;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use warp::reply::Reply;
 use reqwest::header::USER_AGENT;
+use minijinja::context;
 
-#[derive(Template)]
-#[template(path="projects.html")]
+use crate::get_env;
+
+#[derive(Serialize)]
 pub struct ProjectsPage {
     repos: Vec<Repository>
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Repository {
     name: String,
     description: Option<String>,
@@ -17,20 +18,6 @@ pub struct Repository {
     language: Option<String>,
     stargazers_count: u32,
     image: Option<String>
-}
-
-impl Repository {
-    pub fn description_or_default(&self) -> &str {
-        self.description.as_deref().unwrap_or("No description available")
-    }
-
-    pub fn language_or_default(&self) -> &str {
-        self.language.as_deref().unwrap_or("Unknown")
-    }
-    
-    pub fn image_or_default(&self) -> &str {
-        self.image.as_deref().unwrap_or("")
-    }
 }
 
 pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
@@ -58,10 +45,15 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
 
 pub async fn page() -> impl Reply {
     let repos = get_repos().await.unwrap_or_else(|err| {
-        eprintln!("Error fetching repositories: {:?}", err);
-        vec![] // Return an empty vector if there's an error
+        eprintln!("error fetching repos: {:?}", err);
+        vec![]
     });
-    ProjectsPage {
-        repos
-    }
+
+    let env = get_env();
+    let tmpl = env.get_template("projects.html").expect("failed to get template");
+    let html = tmpl.render(context! {
+        repos => repos
+    }).expect("unable to render");
+
+    warp::reply::html(html)
 }
