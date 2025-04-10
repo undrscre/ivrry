@@ -1,9 +1,11 @@
 use minijinja::Environment;
-use warp::Filter;
+use minijinja::{Error, Value};
 use std::fs;
-mod routes;
+use warp::Filter;
+use std::env;
 
-use minijinja::{Value, Error};
+mod builder;
+mod routes;
 
 fn unwrap_val(value: Value) -> Result<Value, Error> {
     if let Some(obj) = value.as_object() {
@@ -31,11 +33,21 @@ pub fn get_env() -> Environment<'static> {
 
 #[tokio::main]
 async fn main() {
-    let pages = routes::pages();
-    let assets = warp::path("assets").and(warp::fs::dir("assets"));
+    let args: Vec<String> = env::args().collect();
+    let mode = args.get(1).map(|s| s.as_str()).unwrap_or("");
 
-    let routes = assets.or(pages);
-    warp::serve(routes)
-        .run(([127, 0, 0, 1], 3030))
-        .await;
+    match mode {
+        "preview" => {
+            let _ = builder::build().await;
+            let route = warp::fs::dir("dist");
+            warp::serve(route).run(([127, 0, 0, 1], 3030)).await
+        }
+        "serve" | _ => {
+            let pages = routes::pages();
+            let assets = warp::path("assets").and(warp::fs::dir("assets"));
+
+            let routes = assets.or(pages);
+            warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
+        }
+    }
 }

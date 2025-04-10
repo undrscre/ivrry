@@ -1,7 +1,7 @@
+use minijinja::context;
+use reqwest::header::USER_AGENT;
 use serde::{Deserialize, Serialize};
 use warp::reply::Reply;
-use reqwest::header::USER_AGENT;
-use minijinja::context;
 
 use crate::get_env;
 
@@ -12,7 +12,7 @@ pub struct Repository {
     html_url: String,
     language: Option<String>,
     stargazers_count: u32,
-    image: Option<String>
+    image: Option<String>,
 }
 
 pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
@@ -29,12 +29,15 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
     let result = repos
         .into_iter()
         .map(|mut repo| {
-            let og_image_url = format!("https://opengraph.githubassets.com/1/undrscre/{}", repo.name);
+            let og_image_url = format!(
+                "https://opengraph.githubassets.com/1/undrscre/{}",
+                repo.name
+            );
             repo.image = Some(og_image_url);
             repo
         })
         .collect();
-    
+
     Ok(result)
 }
 
@@ -45,10 +48,14 @@ pub async fn page_html() -> String {
     });
 
     let env = get_env();
-    let tmpl = env.get_template("projects.html").expect("failed to get template");
-    let html = tmpl.render(context! {
-        repos => repos
-    }).expect("unable to render");
+    let tmpl = env
+        .get_template("projects.html")
+        .expect("failed to get template");
+    let html = tmpl
+        .render(context! {
+            repos => repos
+        })
+        .expect("unable to render");
 
     html
 }

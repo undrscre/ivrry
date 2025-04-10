@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 askama_warp = "0.13.0"
+fs_extra = "1.3.0"
 gray_matter = "0.2.8"
 minijinja = {version = "2.9.0", features = ["loader"]}
 pulldown-cmark = "0.13.0"
