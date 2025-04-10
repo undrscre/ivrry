@@ -10,7 +10,7 @@ published: true
 tags:
   - blog
 ---
-yusukescookedlobster I’m genuinely so so so sorry. After my last hateful post, I realized that hate is not the answer and an![meow](.media/hatepilled/file-20250313185433725.png)ger is only temporary………… my displeasure with your behavior has caused me to go on a full public outrage and it’s only after i published the post i realized i was in the wrong………
+yusukescookedlobster I’m genuinely so so so sorry. After my last hateful post, I realized that hate is not the answer and an![meow](/assets/blog-media/hatepilled/file-20250313185433725.png)ger is only temporary………… my displeasure with your behavior has caused me to go on a full public outrage and it’s only after i published the post i realized i was in the wrong………
 
 i understand now that tearing someone down, no matter how justified i felt in the moment, only leads to more pain. i should have taken a step back, thought before i spoke, and handled things in a way that reflected who i want to be—not who i was in that moment……….
 

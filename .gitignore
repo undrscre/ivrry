@@ -1,3 +1,5 @@
 /target
 tmp
 dist
+.env
+site.zip

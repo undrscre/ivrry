@@ -43,7 +43,7 @@ this track is the second track on her upcoming album “Revengeseekerz” but al
 
 with this topic in mind, she went and referenced alot of her old discography, even as far as doing the pose on the album cover of ‘teen week’ — also known as the album that she [‘disliked’](https://pitchfork.com/news/jane-remover-shares-two-new-songs-listen/) — in the music video.
 
-![a comparison of Jane Remover doing the pose in both the music video and the album cover](.media/motm-01/meow.png)
+![a comparison of Jane Remover doing the pose in both the music video and the album cover](/assets/blog-media/motm-01/meow.png)
 
 i remember when it first dropped i went *crazy* and couldn’t stop screaming over all my friends and we’re all like
 > “HOOOLY FUCKING SHIT IT’S SO GOOD”

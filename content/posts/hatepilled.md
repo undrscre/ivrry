@@ -12,6 +12,6 @@ tags:
 ---
 Hello yusukescookedlobster i have decided to take 10 minutes off of my time to publish this directed hatepost to you i hope you enjoy it. I HATE YUSUKESCOOKEDLOBSTER!! AHHH!!!! I hope you get accidentally trip and fall off the map last second
 
-![image of yusukescookedlobster](.media/hatepilled/file-20250313185433725.png)
+![image of yusukescookedlobster](/assets/blog-media/hatepilled/file-20250313185433725.png)
 
 # Watch out dot dot dot…………

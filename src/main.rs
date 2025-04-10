@@ -39,8 +39,12 @@ async fn main() {
     match mode {
         "preview" => {
             let _ = builder::build().await;
-            let route = warp::fs::dir("dist");
+            let route = warp::fs::dir(builder::OUT_DIR);
             warp::serve(route).run(([127, 0, 0, 1], 3030)).await
+        },
+        "publish" => {
+            let _ = builder::build().await;
+            let _ = builder::publish("dist").await;
         }
         "serve" | _ => {
             let pages = routes::pages();
