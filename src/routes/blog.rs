@@ -54,7 +54,7 @@ fn process_posts() -> HashMap<String, Post> {
 use std::sync::LazyLock;
 static POSTS: LazyLock<HashMap<String, Post>> = LazyLock::new(|| process_posts());
 
-pub async fn posts() -> impl Reply {
+pub async fn posts_html() -> String {
     let posts = POSTS.values().cloned().collect::<Vec<_>>();
     let env = get_env();
     let tmpl = env.get_template("blog.html").unwrap();
@@ -62,10 +62,10 @@ pub async fn posts() -> impl Reply {
         posts => posts
     }).unwrap();
     
-    warp::reply::html(html)
+    html
 }
 
-pub async fn post(slug: String) -> Result<impl Reply, warp::reject::Rejection> {
+pub async fn post_html(slug: String) -> String {
     match POSTS.get(slug.as_str()) {
         Some(post) => {
             let env = get_env();
@@ -75,9 +75,19 @@ pub async fn post(slug: String) -> Result<impl Reply, warp::reject::Rejection> {
                 article => post.html,
             }).unwrap();
 
-            Ok(warp::reply::html(html))
+            html
         },
-        None => Err(warp::reject::not_found()),
+        None => String::new(),
     }
     
+}
+
+pub async fn posts() -> impl Reply {
+    let html = posts_html().await;
+    warp::reply::html(html)
+}
+
+pub async fn post(slug: String) -> impl Reply {
+    let html = post_html(slug).await;
+    warp::reply::html(html)
 }

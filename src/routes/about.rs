@@ -11,9 +11,7 @@ struct Album {
     artist: String,
 }
 
-
-
-pub async fn page() -> impl Reply {
+pub async fn page_html() -> String {
     let file = 
         fs::read_to_string("content/data/albums.json")
         .expect("Unable to read albums.json");
@@ -27,5 +25,10 @@ pub async fn page() -> impl Reply {
         albums => albums
     }).expect("unable to render");
 
+    html
+}
+
+pub async fn page() -> impl Reply {
+    let html = page_html().await;
     warp::reply::html(html)
 }

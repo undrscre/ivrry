@@ -13,7 +13,7 @@ pub fn pages() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejectio
     let projects = warp::path("projects").then(projects::page);
     
     let posts = warp::path::end().then(blog::posts);
-    let post = warp::path::param().and_then(blog::post);
+    let post = warp::path::param().then(blog::post);
     let blog = warp::path("blog").and(posts.or(post));
 
     index.or(projects).or(about).or(buttons).or(blog)

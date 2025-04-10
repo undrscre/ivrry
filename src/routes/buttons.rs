@@ -18,7 +18,7 @@ struct Buttons {
     others: Vec<Button>,
 }
 
-pub async fn page() -> impl Reply {
+pub async fn page_html() -> String {
     let file = 
         fs::read_to_string("content/data/buttons.json")
         .expect("Unable to read buttons.json");
@@ -31,5 +31,10 @@ pub async fn page() -> impl Reply {
         buttons => buttons
     }).expect("unable to render");
 
+    html
+}
+
+pub async fn page() -> impl Reply {
+    let html = page_html().await;
     warp::reply::html(html)
 }

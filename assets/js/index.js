@@ -20,6 +20,7 @@ async function updateLastFM() {
 			"https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";
 		
 		artImg.src = albumArt;
+		artImg.alt = `album art for ${data.album?.["#text"] || data.name}`
 		title.textContent = data.name;
 		title.setAttribute("data-title", data.name);
 		album.textContent = data.album?.["#text"] || data.name;

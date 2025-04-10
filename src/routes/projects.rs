@@ -38,7 +38,7 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
     Ok(result)
 }
 
-pub async fn page() -> impl Reply {
+pub async fn page_html() -> String {
     let repos = get_repos().await.unwrap_or_else(|err| {
         eprintln!("error fetching repos: {:?}", err);
         vec![]
@@ -50,5 +50,10 @@ pub async fn page() -> impl Reply {
         repos => repos
     }).expect("unable to render");
 
+    html
+}
+
+pub async fn page() -> impl Reply {
+    let html = page_html().await;
     warp::reply::html(html)
 }
