@@ -5,11 +5,6 @@ use minijinja::context;
 
 use crate::get_env;
 
-#[derive(Serialize)]
-pub struct ProjectsPage {
-    repos: Vec<Repository>
-}
-
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Repository {
     name: String,

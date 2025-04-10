@@ -22,7 +22,10 @@
 				</div>
 				<img style="display: block; height: 100px; width: auto; right: 1rem; bottom: -1rem; position: absolute;" src="{{ repo.image or '' }}">
 			</fieldset>
-			<img src="/assets/images/fall.gif" class="deco" style="position: absolute; bottom:-380px; width: 300; right:-50px; pointer-events: none;">
+			<button id="meow" class="deco" style="background: transparent; border: none; position: absolute; bottom:-380px; width: 300; right:0px; overflow: hidden; ">
+				<img id="fellow" src="/assets/images/hanging.gif"style="width: 300px;">
+				<img id="fellow2" src="/assets/images/fall.gif"style="width: 300px; display:none">
+			</button>
 		</div>
 		{% else %}
 		<fieldset style="display: flex; overflow: hidden; position: relative; border-style: dashed;">
@@ -35,4 +38,48 @@
 		</fieldset>
 		{% endif %}
     {% endfor %}
+	<img src="https://web.archive.org/web/20091022025759/http://www.geocities.com/spaceacekfn/Under_Construction_Bar.gif">
+	<!-- i should really refactor this -->
+	<script>
+		let button = document.getElementById("meow")
+		let image = document.getElementById("fellow")
+		let image2 = document.getElementById("fellow2")
+		let audio = new Audio()
+		audio.src = "/assets/audio/fallen.mp3";
+
+		let audio2 = new Audio()
+		audio2.src = "/assets/audio/fall.mp3";
+
+		button.addEventListener("click", () => {
+			image.style = "width: 300px; display: none;"
+			image2.style = "width: 300px; display: block;"
+			image2.classList.add("fellow-animate")
+			setTimeout(() => {
+				audio2.play();
+			}, 400)
+			setTimeout(() => {
+				audio.play();
+			}, 2000)
+		});
+	</script>
+	<style>
+		.fellow-animate {
+			animation: fall 2s ease-in-out forwards;
+		}
+		@keyframes fall {
+			0% {
+				transform: translateY(0px);
+			}
+			20% {
+				transform: translateY(-100px);
+				opacity: 1;
+			}
+			100% {
+				transform: translateY(450px);
+				opacity: 0;
+				visibility: hidden;
+				display: none;
+			}
+		}
+	</style>
 {% endblock %}

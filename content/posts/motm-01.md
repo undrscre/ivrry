@@ -3,7 +3,7 @@ title: music of the month! march issue
 desc: 01 - the first music of the month!
 date: 03/11
 year: 2025
-blog-tags:
+blog_tags:
   - motm
   - music
 published: true

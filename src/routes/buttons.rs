@@ -1,26 +1,21 @@
-use askama_warp::Template;
-use serde::Deserialize;
+use minijinja::context;
+use serde::{Serialize, Deserialize};
 use warp::reply::Reply;
 use std::fs;
+use crate::get_env;
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct Button {
     url: String,
     name: String,
     art: String
 }
 
-#[derive(Deserialize)]
+#[derive(Serialize, Deserialize)]
 struct Buttons {
     friends: Vec<Button>,
     recco: Vec<Button>,
     others: Vec<Button>,
-}
-
-#[derive(Template)]
-#[template(path="buttons.html")]
-pub struct ButtonsPage {
-    buttons: Buttons
 }
 
 pub async fn page() -> impl Reply {
@@ -30,7 +25,11 @@ pub async fn page() -> impl Reply {
     let buttons: Buttons  = 
         serde_json::from_str(&file)
         .expect("JSON was not formatted correctly");
-    ButtonsPage {
-        buttons
-    }
+    let env = get_env();
+    let tmpl = env.get_template("buttons.html").expect("failed to get template");
+    let html = tmpl.render(context! {
+        buttons => buttons
+    }).expect("unable to render");
+
+    warp::reply::html(html)
 }

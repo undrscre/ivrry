@@ -3,7 +3,7 @@ title: test
 desc: lorem ipsun
 date: 9/99
 year: 2025
-blog-tags:
+blog_tags:
   - test
 published: true
 tags:

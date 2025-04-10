@@ -3,7 +3,7 @@ title: dedicated hatepost to yusukescookedlobster
 desc: watch out may 4th 11:47pm
 date: 03/13
 year: 2025
-blog-tags:
+blog_tags:
   - live laugh hate
   - JOKES
 published: true

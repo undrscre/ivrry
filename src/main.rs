@@ -23,7 +23,6 @@ pub fn get_env() -> Environment<'static> {
         if path.is_file() {
             let name = path.file_name().unwrap().to_str().unwrap().to_string();
             let source = fs::read_to_string(&path).unwrap();
-            println!("added template {}", name);
             env.add_template_owned(name, source).unwrap();
         }
     });

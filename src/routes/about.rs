@@ -1,10 +1,9 @@
-use std::fs;
-
-use askama_warp::Template;
 use warp::reply::Reply;
-use serde::Deserialize;
-
-#[derive(Deserialize)]
+use serde::{Serialize, Deserialize};
+use std::fs;
+use crate::get_env;
+use minijinja::context;
+#[derive(Serialize, Deserialize)]
 struct Album {
     url: String,
     title: String,
@@ -12,11 +11,7 @@ struct Album {
     artist: String,
 }
 
-#[derive(Template)]
-#[template(path="about.html")]
-pub struct AboutPage {
-    albums: Vec<Album>
-}
+
 
 pub async fn page() -> impl Reply {
     let file = 
@@ -26,7 +21,11 @@ pub async fn page() -> impl Reply {
         serde_json::from_str(&file)
         .expect("JSON was not formatted correctly");
     
-    AboutPage {
-        albums
-    }
+    let env = get_env();
+    let tmpl = env.get_template("about.html").expect("failed to get template");
+    let html = tmpl.render(context! {
+        albums => albums
+    }).expect("unable to render");
+
+    warp::reply::html(html)
 }

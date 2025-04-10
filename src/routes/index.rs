@@ -4,7 +4,7 @@ use warp::reply::Reply;
 
 pub async fn page() -> impl Reply {
     let env = get_env();
-    let tmpl = env.get_template("index").unwrap();
+    let tmpl = env.get_template("index.html").unwrap();
     let html = tmpl.render(context!{}).unwrap();
 
     warp::reply::html(html)

@@ -16,13 +16,13 @@
 	{% for post in posts %}
 		<fieldset>
 			<!-- i have no idea why i have to put .html because i have nice links on but it works -->
-			<h2><a href="{{ post.slug }}.html">{{ post.meta.title }}</a></h2>
+			<h2><a href="/blog/{{ post.slug}}">{{ post.meta.title }}</a></h2>
 			<p>{{ post.meta.desc }}</p>
 			<span>
 				<span class="subtext">{{ post.meta.date }}/{{post.meta.year}} / </span>
 				<span class="tags">
-					tags:
-					{% for tag in post.meta["blog-tags"] %}
+					tags: 
+					{% for tag in post.meta.blog_tags %}
 						<span class="splash">{{ tag }}</span>
 					{% endfor %}
 				</span>
