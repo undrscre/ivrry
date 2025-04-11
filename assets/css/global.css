@@ -63,6 +63,17 @@ code {
 	animation: scroll-bg 20s linear 0s forwards infinite;
 }
 
+.warning {
+	border: 10px solid #f9e2af;
+	border-image: repeating-linear-gradient(
+		-55deg,
+		#585b70,
+		#585b70 20px,
+		#f9e2af 20px,
+		#f9e2af 40px
+	) 10;
+}
+
 @keyframes scroll-bg {
 	from {
 		background-position: 0px 0px;
@@ -118,7 +129,7 @@ code {
 	padding-right: 10px;
 	pointer-events: none;
 	background-color: #11111b;
-	z-index:20;
+	z-index:99;
 	border: 1px #585b70 dashed;
 	transform-origin: top left;
 	transition: opacity 0.25s;

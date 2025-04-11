@@ -9,35 +9,46 @@
             this page is dedicated for my button collection ^_^ if you want to get your site linked here please lmk :D
         </p>
     </fieldset>
-    <fieldset>
+    <fieldset class="warning">
+        <legend>warning!!</legend>
+        <h2 style="text-align: center;">this page contains alot of flashing elements</h2>
+    </fieldset>
+    <fieldset class="set">
         <legend>my friends!</legend>
-        <div class="buttons">
+        <div class="group">
             {% for button in buttons.friends %}
-            <a href="{{button.url}}" class="button" target="_blank">
+            <a href="{{button.url}}" class="item" target="_blank">
                 <img class="button-art" src="{{button.art}}" loading="lazy" 
                 data-title="{{button.name}} <br> <i class='subtext'>{{button.url}}</i>" 
                 title="{{button.name}} {{button.url}}"></a>
             {% endfor %}
         </div>
     </fieldset>
-    <fieldset>
+    <fieldset class="set">
         <legend>sites i think you should visit</legend>
-        <div class="buttons">
+        <div class="group">
             {% for button in buttons.recco %}
-            <a href="{{button.url}}" class="button" target="_blank">
+            <a href="{{button.url}}" class="item" target="_blank">
                 <img class="button-art" src="{{button.art}}" loading="lazy" 
                 data-title="{{button.name}} <br> <i class='subtext'>{{button.url}}</i>" 
                 title="{{button.name}} {{button.url}}"></a>
             {% endfor %}
         </div>
     </fieldset>
-    <fieldset>
+    <fieldset class="set">
         <legend>other collection</legend>
-        <div class="buttons">
+        <div class="group">
             {% for button in buttons.others %}
-                <img class="button" src="{{button.art}}" loading="lazy" 
+                <img class="item" src="{{button.art}}" loading="lazy" 
                 data-title="{{button.name}}" 
                 title="{{button.name}}">
+            {% endfor %}
+        </div>
+        <div class="group">
+            {% for stamp in stamps %}
+                <img class="item" src="{{stamp.src}}" loading="lazy" 
+                data-title="{{stamp.name}}" 
+                title="{{stamp.name}}">
             {% endfor %}
         </div>
     </fieldset>
@@ -51,7 +62,7 @@
                 <p>click on the button to copy!</p>
             </div>
         </div>
-<pre><code>&lt;a href="https://ivrry.nekoweb.org" class="button" target="_blank"&gt;
+<pre><code>&lt;a href="https://ivrry.nekoweb.org" class="item" target="_blank"&gt;
     &lt;img src="https://ivrry.nekoweb.org/assets/images/button.png" alt="ivrry"&gt;
 &lt;/a&gt;</code></pre>
     <script>
@@ -60,7 +71,7 @@
         button.addEventListener('click', async () => {
             try {
             await navigator.clipboard.writeText(
-                `<a href="https://ivrry.nekoweb.org" class="button" target="_blank">
+                `<a href="https://ivrry.nekoweb.org" class="item" target="_blank">
         <img src="https://ivrry.nekoweb.org/assets/images/button.png" alt="ivrry">
     </a>`
             );
@@ -72,4 +83,5 @@
         });
     </script>
     </fieldset>
+    <hr>
 {% endblock %}

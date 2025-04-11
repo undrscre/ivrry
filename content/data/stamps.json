@@ -1,0 +1,34 @@
+[
+    {
+        "src": "/assets/images/stamps/polybius.gif",
+        "name": "polybius stamp"
+    },
+    {
+        "src": "/assets/images/stamps/hell.png",
+        "name": "hell stamp"
+    },
+    {
+        "src": "/assets/images/stamps/ufo.gif",
+        "name": "ufo stamp"
+    },
+    {
+        "src": "/assets/images/stamps/stamp-brokendreams.gif",
+        "name": "a stamp"
+    },
+    {
+        "src": "/assets/images/stamps/stamp-bars.png",
+        "name": "colored bars stamp"
+    },
+    {
+        "src": "/assets/images/stamps/stamp-happyface2.png",
+        "name": "^_^ stamp"
+    },
+    {
+        "src": "/assets/images/stamps/stamp-albuquerque.gif",
+        "name": "a stamp featuring the entirety of albuquerque"
+    },
+    {
+        "src": "/assets/images/stamps/nina.png",
+        "name": "nina fan stamp"
+    }
+]

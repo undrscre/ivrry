@@ -91,6 +91,11 @@
             "name":"YUGOSLAVIA DOT BEST",
             "url":"https://yugoslavia.best",
             "art":"/assets/images/buttons/yugo.gif"
+        },
+        {
+            "name":"fanblog comic!",
+            "url":"https://fanblogcomic.neocities.org/",
+            "art":"https://webcomicring.org/img/comics/fanblog/88x31.png"
         }
     ],
     "others": [
