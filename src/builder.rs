@@ -58,25 +58,35 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
     dotenv().ok();
     let api_endpoint = env::var("API_ENDPOINT").expect("API_ENDPOINT must be set");
     let api_key = env::var("API_KEY").expect("API_ENDPOINT must be set");
+    let cookie = env::var("TOKEN").expect("CSRF_TOKEN must be set");
+
     let client = reqwest::Client::new();
 
     let _ = fs::remove_file("site.zip").unwrap();
     let _ = zip_dir(dist_dir, "site.zip");
     let zip = fs::read("site.zip").unwrap();
 
-    let id = client
+    let id_req = client
         .get(format!("{}/files/big/create", api_endpoint))
         .header("Authorization", &api_key)
         .send()
-        .await? //  oh my god
-        .json::<HashMap<String, String>>()
-        .await?
-        .get("id")
-        .cloned();
+        .await?;
 
+    let mut id = String::new();
+    if !id_req.status().is_success() {
+        eprintln!("Failed to retrieve bigfile")
+    } else {
+        println!("Id success");
+        id = id_req
+            .json::<HashMap<String, String>>()
+            .await?
+            .get("id")
+            .unwrap()
+            .to_owned();
+    }
     let form = Form::new()
-        .part("id", Part::text(id.clone().unwrap()))
-        .part("file", Part::bytes(zip).file_name("site.zip"));
+            .part("id", Part::text(id.clone()))
+            .part("file", Part::bytes(zip).file_name("site.zip"));
 
     let file = client
         .post(format!("{}/files/big/append", api_endpoint))
@@ -87,17 +97,66 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
 
     if !file.status().is_success() {
         eprintln!("Failed to append")
+    } else {
+        println!("Append success")
     }
 
     let upload = client
-        .post(format!("{}/files/import/{}", api_endpoint, id.unwrap()))
+        .post(format!("{}/files/import/{}", api_endpoint, id))
         .header("Authorization", &api_key)
         .send()
         .await?;
 
     if !upload.status().is_success() {
         eprintln!("Failed to upload")
+    } else {
+        println!("Upload success")
     }
+
+    let csrf = client
+        .get(format!("{}/csrf", api_endpoint))
+        .header("Origin", "https://nekoweb.org")
+        .header("Host", "nekoweb.org")
+        .header("User-Agent", "ivrry.rs/0.1")
+        .header("Cookie", format!("token={}", cookie))
+        .send()
+        .await?;
+
+    let mut csrf_token: String = String::new();
+    if !csrf.status().is_success() {
+        eprintln!("Failed to retrieve csrf token: {}", csrf.status());
+        eprintln!("response body: {}", csrf.text().await?);
+    } else {
+        println!("Csrf success");
+        csrf_token = csrf.text().await?;
+    }
+
+    let form = Form::new()
+        .part("csrf", Part::text(csrf_token))
+        .part("site", Part::text("ivrry"))
+        .part("pathname", Part::text("build.html"))
+        .part("content", Part::text(
+            format!("<html>
+                        <h1>hello! welcome to build.html</h1>
+                        <p>the site was last built on {:#?}</p>
+                    </html>", std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH))));
+
+    let edit = client
+        .post(format!("{}/files/edit", api_endpoint))
+        .header("Origin", "https://nekoweb.org")
+        .header("Host", "nekoweb.org")
+        .header("User-Agent", "ivrry.rs/0.1")
+        .header("Cookie", format!("token={}", cookie))
+        .multipart(form)
+        .send()
+        .await?;
+    
+    if !edit.status().is_success() {
+        eprintln!("Failed to edit, try checking token")
+    } else {
+        println!("Edit success")
+    }
+
 
     println!("Done");
     Ok(())
