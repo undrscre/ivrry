@@ -44,7 +44,6 @@ async function updateLastFM() {
 }
 
 async function updateStatus() {
-	console.log("awawawa")
 	await fetch("https://status.cafe/users/ivrry/status.json")
 		.then( r => r.json() )
 		.then( r => {

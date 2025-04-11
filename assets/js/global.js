@@ -6,7 +6,7 @@ async function updateSiteStats() {
 		const date = new Date(response.updated_at).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' });
 
 		document.getElementById('visitors').textContent = response.views.toString().padStart(4, '0');
-		// document.getElementById('updated').textContent = date;
+		document.getElementById('updated').textContent = date;
 		document.getElementById('followers').textContent = response.followers.toString().padStart(4, '0');
 
 	} catch (err) {
