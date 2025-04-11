@@ -12,6 +12,7 @@ pub struct Repository {
     html_url: String,
     language: Option<String>,
     stargazers_count: u32,
+    fork: bool,
     image: Option<String>,
 }
 
@@ -34,8 +35,13 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
                 repo.name
             );
             repo.image = Some(og_image_url);
-            repo
+            if !repo.fork {
+                Some(repo)
+            } else {
+                None
+            }
         })
+        .filter_map(|repo| repo)
         .collect();
 
     Ok(result)

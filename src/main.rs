@@ -1,24 +1,13 @@
 use minijinja::Environment;
-use minijinja::{Error, Value};
+use std::env;
 use std::fs;
 use warp::Filter;
-use std::env;
 
 mod builder;
 mod routes;
 
-fn unwrap_val(value: Value) -> Result<Value, Error> {
-    if let Some(obj) = value.as_object() {
-        if let Some(inner) = obj.get_value(&value) {
-            return Ok(inner.clone());
-        }
-    }
-    Ok(value)
-}
-
 pub fn get_env() -> Environment<'static> {
     let mut env = Environment::new();
-    env.add_filter("unwrap", unwrap_val);
     let _ = fs::read_dir("templates").unwrap().for_each(|entry| {
         let entry = entry.unwrap();
         let path = entry.path();
@@ -41,7 +30,7 @@ async fn main() {
             let _ = builder::build().await;
             let route = warp::fs::dir(builder::OUT_DIR);
             warp::serve(route).run(([127, 0, 0, 1], 3030)).await
-        },
+        }
         "publish" => {
             let _ = builder::build().await;
             let _ = builder::publish("dist").await;
