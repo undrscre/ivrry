@@ -1,8 +1,7 @@
 ---
 title: dedicated apologypost to yusukescookedlobster
 desc: another entry in the saga
-date: 03/13
-year: 2025
+date: 2025-03-13
 blog_tags:
   - come back... im sorry..
   - JOKES
