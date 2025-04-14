@@ -9,61 +9,67 @@ use gray_matter::Matter;
 use gray_matter::engine::YAML;
 use serde::{Deserialize, Serialize};
 
-use std::collections::HashMap;
+use chrono::NaiveDate;
+use std::sync::LazyLock;
 
-#[derive(Serialize, Deserialize, Clone)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 struct Meta {
     title: String,
     desc: String,
-    date: String,
-    year: u16,
+    date: NaiveDate,
     blog_tags: Vec<String>,
     published: bool,
 }
 
-#[derive(Serialize, Clone)]
+#[derive(Serialize, Clone, Debug)]
 struct Post {
     meta: Meta,
     html: String,
     slug: String,
 }
 
-fn process_posts() -> HashMap<String, Post> {
-    fs::read_dir("content/posts")
-        .unwrap()
-        .map(|post| {
-            let post = post.unwrap();
-            let file = fs::read_to_string(post.path()).unwrap();
-            let slug = post.file_name().to_str().unwrap().to_owned();
+    fn process_posts() -> Vec<Post> {
+        let mut posts: Vec<Post> = fs::read_dir("content/posts")
+            .unwrap()
+            .filter_map(|post| { 
+                let post = post.unwrap();
+                if post.file_type().unwrap().is_dir() {
+                    return None;
+                }
+                let file = fs::read_to_string(post.path()).unwrap();
+                let slug = post.file_name().to_str().unwrap().to_owned();
 
-            let matter = Matter::<YAML>::new();
-            let meta = matter.parse_with_struct::<Meta>(&file).unwrap();
+                let matter = Matter::<YAML>::new();
+                let meta = matter.parse_with_struct::<Meta>(&file).unwrap();
 
-            let parser = Parser::new(&meta.content);
-            let mut html = String::new();
-            pulldown_cmark::html::push_html(&mut html, parser);
+                let parser = Parser::new(&meta.content);
+                let mut html = String::new();
+                pulldown_cmark::html::push_html(&mut html, parser);
 
-            let post = Post {
-                meta: meta.data,
-                html,
-                slug: slug.trim_end_matches(".md").to_owned(),
-            };
+                Some(Post {
+                    meta: meta.data,
+                    html,
+                    slug: slug.trim_end_matches(".md").to_owned(),
+                })
+            })
+            .collect();
 
-            (post.slug.clone(), post)
-        })
-        .collect::<HashMap<String, Post>>()
+        posts.sort_unstable_by(|a, b| b.meta.date.cmp(&a.meta.date)); 
+        posts
+    }
+    
+static POSTS: LazyLock<Vec<Post>> = LazyLock::new(|| process_posts());
+
+fn find_post<'a>(posts: &'a [Post], slug: &str) -> Option<&'a Post> {
+    posts.iter().find(|post| post.slug == slug)
 }
 
-use std::sync::LazyLock;
-static POSTS: LazyLock<HashMap<String, Post>> = LazyLock::new(|| process_posts());
-
 pub async fn page_html() -> String {
-    let posts = POSTS.values().cloned().collect::<Vec<_>>();
     let env = get_env();
     let tmpl = env.get_template("blog.html").unwrap();
     let html = tmpl
         .render(context! {
-            posts => posts
+            posts => *POSTS
         })
         .unwrap();
 
@@ -71,20 +77,20 @@ pub async fn page_html() -> String {
 }
 
 pub async fn post_html(slug: &String) -> String {
-    match POSTS.get(slug.as_str()) {
-        Some(post) => {
-            let env = get_env();
-            let tmpl = env.get_template("_post.html").unwrap();
-            let html = tmpl
-                .render(context! {
-                    meta => post.meta,
-                    article => post.html,
-                })
-                .unwrap();
+    let posts = process_posts();
+    if let Some(post) = find_post(&posts, slug) {
+        let env = get_env();
+        let tmpl = env.get_template("_post.html").unwrap();
+        let html = tmpl
+            .render(context! {
+                meta => post.meta,
+                article => post.html,
+            })
+            .unwrap();
 
-            html
-        }
-        None => String::new(),
+        html
+    } else {
+        String::new()
     }
 }
 

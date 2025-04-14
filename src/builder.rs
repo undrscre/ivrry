@@ -1,9 +1,9 @@
-
 use crate::routes::{about, blog, buttons, index, projects};
 use dotenv::dotenv;
 use reqwest::multipart::{Form, Part};
-use std::env;
 use std::{
+    env,
+    process::Command,
     collections::HashMap,
     fs::{self, File},
     io::Write,
@@ -131,6 +131,12 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
         csrf_token = csrf.text().await?;
     }
 
+    // get current git commit 
+    let output = Command::new("git")
+        .args(["log", "--pretty=format:'%h'", "-n 1"])
+        .output()
+        .expect("failed to retrieve git commit");
+    
     let form = Form::new()
         .part("csrf", Part::text(csrf_token))
         .part("site", Part::text("ivrry"))
@@ -138,8 +144,11 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
         .part("content", Part::text(
             format!("<html>
                         <h1>hello! welcome to build.html</h1>
-                        <p>the site was last built on {:#?}</p>
-                    </html>", std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH))));
+                        <p>the site was last built on {}</p>
+                        <p>current source commit: {:#?}</p>
+                    </html>", 
+                    std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs(),
+                    output.stdout)));
 
     let edit = client
         .post(format!("{}/files/edit", api_endpoint))
