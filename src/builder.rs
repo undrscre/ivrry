@@ -1,9 +1,8 @@
-use crate::routes::{about, blog, buttons, index, projects};
+use crate::routes::{about, blog, buttons, index, projects, diagnostic};
 use dotenv::dotenv;
 use reqwest::multipart::{Form, Part};
 use std::{
     env,
-    process::Command,
     collections::HashMap,
     fs::{self, File},
     io::Write,
@@ -36,6 +35,9 @@ pub async fn build() -> Result<(), std::io::Error> {
     generate_page!(buttons, "buttons.html");
     generate_page!(projects, "projects.html");
     generate_page!(blog, "blog/index.html");
+
+    // TODO: skip this step in publish mode
+    generate_page!(diagnostic, "build.html");
 
     let posts = fs::read_dir("content/posts")?;
     for post in posts {
@@ -130,25 +132,12 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
         println!("Csrf success");
         csrf_token = csrf.text().await?;
     }
-
-    // get current git commit 
-    let output = Command::new("git")
-        .args(["log", "--pretty=format:'%h'", "-n 1"])
-        .output()
-        .expect("failed to retrieve git commit");
     
     let form = Form::new()
         .part("csrf", Part::text(csrf_token))
         .part("site", Part::text("ivrry"))
         .part("pathname", Part::text("build.html"))
-        .part("content", Part::text(
-            format!("<html>
-                        <h1>hello! welcome to build.html</h1>
-                        <p>the site was last built on {}</p>
-                        <p>current source commit: {:#?}</p>
-                    </html>", 
-                    std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_secs(),
-                    output.stdout)));
+        .part("content", Part::text(diagnostic::page_html().await));
 
     let edit = client
         .post(format!("{}/files/edit", api_endpoint))

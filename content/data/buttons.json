@@ -96,7 +96,12 @@
             "name":"fanblog comic!",
             "url":"https://fanblogcomic.neocities.org/",
             "art":"https://webcomicring.org/img/comics/fanblog/88x31.png"
-        }
+        },
+        {
+            "name":"okt's terminal",
+            "url":"https://okt.nekoweb.org",
+            "art":"https://okt.nekoweb.org/assets/pics/okt_button.gif"
+        }	
     ],
     "others": [
         {
