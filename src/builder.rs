@@ -1,4 +1,4 @@
-use crate::routes::{about, blog, buttons, index, projects, diagnostic};
+use crate::routes::{about, blog, buttons, diagnostic, guestbook, index, projects, not_found};
 use dotenv::dotenv;
 use reqwest::multipart::{Form, Part};
 use std::{
@@ -30,11 +30,14 @@ pub async fn build() -> Result<(), std::io::Error> {
     fs_extra::dir::copy("assets", OUT_DIR, &options)
         .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
 
+    generate_page!(not_found, "not_found.html");
+
     generate_page!(index, "index.html");
     generate_page!(about, "about.html");
     generate_page!(buttons, "buttons.html");
     generate_page!(projects, "projects.html");
     generate_page!(blog, "blog/index.html");
+    generate_page!(guestbook, "guestbook.html");
 
     // TODO: skip this step in publish mode
     generate_page!(diagnostic, "build.html");
@@ -57,6 +60,7 @@ pub async fn build() -> Result<(), std::io::Error> {
 }
 
 pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
+    let start_time = std::time::SystemTime::now();
     dotenv().ok();
     let api_endpoint = env::var("API_ENDPOINT").expect("API_ENDPOINT must be set");
     let api_key = env::var("API_KEY").expect("API_ENDPOINT must be set");
@@ -155,8 +159,8 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
         println!("Edit success")
     }
 
-
-    println!("Done");
+    let end_time = std::time::SystemTime::now().duration_since(start_time);
+    println!("Done in {}s", end_time.unwrap().as_secs_f32());
     Ok(())
 }
 

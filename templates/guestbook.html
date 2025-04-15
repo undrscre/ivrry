@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% block title %}ivy's home - blog{% endblock %}
+{% block css %}/assets/css/blog.css{% endblock %}
+{% block content %}
+<fieldset>
+    <legend>repurposed comment section</legend>
+    <img src="/assets/images/guestbook.gif" class="title" style="width:100%; image-rendering:pixelated;" alt="animated title that says 'guestbook'">
+    <p>
+        welcome to my guestbook! feel free to write in anything here
+        aslong as it's not inherently too evil-sounding :3
+    </p>
+</fieldset>
+<div id="c_widget" style="margin-top: 1rem;"></div>
+<script src="/assets/js/comments.js"></script>
+{% endblock %}
