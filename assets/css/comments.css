@@ -94,6 +94,7 @@
 .c-comment {
     border: 1px solid #585b70;
     padding: 1rem;
+    background: #11111b;
 }
 .c-replyContainer {
     border: 1px dashed #585b70;

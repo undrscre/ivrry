@@ -423,6 +423,9 @@ function createComment(data) {
     let filteredText = data.Text;
     if (s_wordFilterOn) {filteredText = filteredText.replace(v_filteredWords, s_filterReplacement)}
     text.innerText = filteredText;
+    if (filteredText == "thisisaspecifictextcontentthatwouldgetreplacedbyjavascripttoshowanimageandinthiscaseitshellobro") {
+        text.innerHTML = "<img src='/assets/images/g.png' style='width:200px'>"
+    }
     text.className = 'c-text';
     comment.appendChild(text);
     
