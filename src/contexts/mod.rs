@@ -1,5 +1,8 @@
-mod index;
+pub mod index;
 
-pub trait PageContext {
-    fn context() -> minijinja::value::Value;
+pub fn retrieve_context(name: &str) -> Option<minijinja::value::Value> {
+    match name {
+        "test/index.html" => Some(index::context()),
+        _ => None
+    }
 }
