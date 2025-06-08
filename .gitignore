@@ -4,3 +4,4 @@ dist
 .env
 site.zip
 /content/posts/private
+.src-old
