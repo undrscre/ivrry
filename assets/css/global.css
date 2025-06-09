@@ -59,7 +59,7 @@ code {
 	width: 100vw;
 	z-index: -5;
 	height: 100vh;
-	background: url('/assets/images/stars.png');
+	background: url('/assets/images/stars-baked.png');
 	animation: scroll-bg 20s linear 0s forwards infinite;
 }
 
@@ -85,7 +85,6 @@ code {
 .bg::after {
 	content: '';
 	position: absolute;
-	backdrop-filter: saturate(0%) brightness(50%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(80%) contrast(100%);
 	background: linear-gradient(to bottom, transparent, #11111b);
 	top:0;
 	left:0;
