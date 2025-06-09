@@ -1,8 +1,12 @@
-pub mod index;
+pub mod buttons; 
+pub mod projects;
+pub mod about; 
 
-pub fn retrieve_context(name: &str) -> Option<minijinja::value::Value> {
+pub async fn retrieve_context(name: &str) -> Option<minijinja::value::Value> {
     match name {
-        "test/index.html" => Some(index::context()),
+        "buttons.html" => Some(buttons::context()),
+        "projects.html" => Some(projects::context().await),
+        "about.html" => Some(about::context()),
         _ => None
     }
 }

@@ -28,8 +28,15 @@ function toggleDeco(enabled) {
 	});
 }
 
-document.querySelector(".niko-button").addEventListener('click', () => {
-	const audio = new Audio("/assets/audio/squeak.mp3");
+document.querySelector(".niko-button").addEventListener('mousedown', () => {
+	const audio = new Audio("/assets/audio/squeak-in.mp3");
+	
+	audio.volume = .6
+	audio.play();
+});
+
+document.querySelector(".niko-button").addEventListener('mouseup', () => {
+	const audio = new Audio("/assets/audio/squeak-out.mp3");
 	
 	audio.volume = .6
 	audio.play();
