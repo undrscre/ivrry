@@ -5,11 +5,25 @@
 	<fieldset>
 		<legend>welcome to my site</legend>
 		<img src="assets/images/title.gif" alt="ivrry.nekoweb.org" class="title" style="width:100%; image-rendering:pixelated;">
+		<div style="position: relative;height: 50px;width: 100%;background: #cdd6f4;margin-top: 1rem;">
+			<!-- imported from old nkko.me src -->
+			<marquee style="display: flex;align-items: center;height: 100%;"><h1 id="splash-text" style="color: #10101a; font-size: 25px;"></h1></marquee>  
+
+			<!-- YES this is hell i'm SORRY -->
+			<img src="/assets/images/speech.png" alt="a speech bubble, containing the splash text" style="position: absolute; right:0px; top:50%; height:120%; image-rendering:pixelated; transform: translateY(-50%);">
+			<img src="/assets/images/speech.png" alt="a speech bubble, containing the splash text" style="position: absolute; right:80px; top:50%; height:120%; image-rendering:pixelated; transform: translateY(-50%);">
+			<img src="/assets/images/blabber.GIF" title="drawn by @caviarr39!" alt="an animated gif of Niko, speaking" style="position: absolute; z-index:15; right:-13px; top:50%; image-rendering:pixelated; height:240%; transform: translateY(-60%);">
+			<img src="/assets/images/speech-end.png" alt="a speech bubble, containing the splash text" style="position: absolute; left:0px; top:50%; height:120%; image-rendering:pixelated; transform: translateY(-50%);">
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>about this site!!</legend>
 		<div>
-			<p style="margin-bottom:0; text-align:justify;">
+			<img src="/assets/images/gleach.gif" class="deco" style="width: 250px; margin-left:2rem; float: right;">
+			<p style="margin-bottom:0; margin-top:0;">
 				hello world! i'm ivy and this is my humble abode! ^_^
 			</p>
-			<p>
+			<p style="text-align:justify;">
 				this site was created to serve the purpose as 
 				my little dumping grounds for whatever i do on the 
 				interwebs :3
@@ -22,7 +36,7 @@
 				please be patient with me as i try to make
 				this site as cool as possible!</s>
 			</p> -->
-			<p>
+			<p style="text-align:justify;">
 				this website is essentially finished and won't 
 				be recieveing alot of huge updates, thanks to those
 				who has helped me throughout the development n
@@ -38,8 +52,9 @@
 			to ivrry.nekoweb.org!! much thnx, from ivy &lt;3
 		</p>
     </fieldset> -->
-	<fieldset class="thoughts">
+	<fieldset class="thoughts" style="position: relative;">
 		<legend>how i'm feeling rn:</legend>
+		<img src="/assets/images/bendylook.gif" class="deco bendy" title="bendy leau :)" loading="lazy">
 		<div class="thoughts-sidebar">
 			<img src="assets/images/pfp.png" alt="ivy's pfp" class="pfp">
 			<!-- <a class="past-thoughts" href="thoughts.html">past thoughts</a> -->
@@ -56,7 +71,7 @@
 				</noscript>
 			</p>
 		</div>
-		<img src="assets/images/balloon.gif" alt="" class="deco" style="height:80px; margin-left:auto;">
+		<img src="assets/images/balloon.gif" alt="" class="deco" style="height:80px; margin-left:auto; z-index: 2; position: relative;">
 	</fieldset>
 	<fieldset class="lastfm" style="display: flex; gap: 1rem;">
 		<noscript>
@@ -96,8 +111,9 @@
 			<button id="webchat-sendbtn">submit</button>
 		</div>
 	</fieldset>	 -->
+	<iframe class="deco" src="https://john.citrons.xyz/embed?ref=ivrry.nekoweb.org" loading="lazy" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:74px;border:none;"></iframe>
 	<div class="webrings" style="display:flex; gap: 1rem;">
-		<iframe id="bucket-webring" style="flex-grow:1;height: 3rem; border: none;" src="/assets/html/bucket.html"></iframe> 
+		<iframe id="bucket-webring" loading="lazy" style="flex-grow:1;height: 3rem; border: none;" src="/assets/html/bucket.html"></iframe> 
 		<div class="ssgring">
 			<a href="https://jbcarreon123.nekoweb.org/webrings/ssgring/redirect?slug=ivrry&way=prev">&lt; prev</a>
 			<a href="https://jbcarreon123.nekoweb.org/webrings/ssgring/redirect?slug=ivrry&way=prev">ssgring</a>
@@ -106,5 +122,6 @@
 	</div>
 	<img src="assets/images/lights.gif" alt="" class="lights">
 	<script src="/assets/js/index.js"></script>
+	<script src="/assets/js/splash.js"></script>
 	<!-- <script src="/assets/js/webchat.js"></script> -->
 {% endblock %}

@@ -50,6 +50,21 @@
 	}
 }
 
+.bendy {
+	position: absolute;
+	width: 300px;
+	right: -25px;
+	top: -130px;
+	transform: scaleX(-1);
+	transition: transform 250ms ease-out;
+	cursor: pointer;
+	transform-origin: center 142px;
+}
+
+.bendy:active {
+	transform: scaleX(-1) scaleY(0.8);
+}
+
 .ssgring {
 	display: flex;
 	font-size: 20px;

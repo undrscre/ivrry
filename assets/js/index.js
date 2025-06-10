@@ -57,3 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	updateLastFM();
 	updateStatus();
 });
+
+document.querySelector(".bendy").addEventListener('mousedown', () => {
+	const audio = new Audio("/assets/audio/squeak-in.mp3");
+	
+	audio.volume = .6
+	audio.play();
+});
+
+document.querySelector(".bendy").addEventListener('mouseup', () => {
+	const audio = new Audio("/assets/audio/squeak-out.mp3");
+	
+	audio.volume = .6
+	audio.play();
+});
