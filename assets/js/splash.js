@@ -6,9 +6,9 @@ let totalSplashes = {
     "nthclub": [
         "Splashes splashes... where's the water?",
         "the lion, the witch, and the audacity of this bitch!",
-        "actually, why DID joe have so many liberals???",
+        // "actually, why DID joe have so many liberals???",
         "Help ive been trapped in these texts for 7 years let me out LET ME OU",
-        "\"it's dot me!\"",
+        "\"it's dot org!\"",
         "don't talk to me until u a farm merge valley sweat 🔥🔥🔥🔥",
         "whuh- how? why?                                             ..nevermind",
         "dont ever buy no gas from the gas station bro",
