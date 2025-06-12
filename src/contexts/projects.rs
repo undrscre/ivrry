@@ -23,7 +23,10 @@ pub async fn get_repos() -> Result<Vec<Repository>, reqwest::Error> {
         .await?;
 
     let text = response.text().await?;
-    let repos: Vec<Repository> = serde_json::from_str(&text).expect("oops something wrong happened probably ratelimits lol");
+    let repos: Vec<Repository> = serde_json::from_str(&text).unwrap_or_else(|err| {
+        eprintln!("error fetching repos: {:?}", err);
+        vec![]
+    });
     let result = repos
         .into_iter()
         .map(|mut repo| {

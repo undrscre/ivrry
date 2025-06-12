@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@80,200..900&display=swap');
 
+@font-face {
+	font-family: Inconsolata2; /* backup */
+	src: url("/assets/fonts/Inconsolata.ttf");
+}
 body {
 	display: flex;
 	justify-content: center;
@@ -11,7 +15,8 @@ body {
 	gap: 1rem;
 	background-color: #11111b;
 	color: #cdd6f4;
-	font-family: Inconsolata, monospace;
+	font-family: Inconsolata, Inconsolata2, monospace;
+	font-stretch: 80%;
 }
 
 p {

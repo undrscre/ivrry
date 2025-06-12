@@ -1,5 +1,5 @@
 {% extends "_base.html" %}
-{% block title %}ivy's home - welcome{% endblock %}
+{% block title %}ivy's home{% endblock %}
 {% block css %}assets/css/index.css{% endblock %}
 {% block content %}
 	<fieldset>
@@ -16,10 +16,13 @@
 			<img src="/assets/images/speech-end.png" alt="a speech bubble, containing the splash text" style="position: absolute; left:0px; top:50%; height:120%; image-rendering:pixelated; transform: translateY(-50%);">
 		</div>
 	</fieldset>
-	<fieldset>
+	<fieldset style="position: relative;">
 		<legend>about this site!!</legend>
 		<div>
-			<img src="/assets/images/gleach.gif" class="deco" style="width: 250px; margin-left:2rem; float: right;">
+			<div class="nkko-stars" style="width:250px; height:230px; float: right; margin-left: 1rem; position: relative;">
+				<img src="/assets/images/gleach.gif" class="deco" style="width: 250px; left:-30px; position: absolute;">
+				<img src="/assets/images/teapot.gif" class="deco" style="position: absolute; width: 300px; bottom:-30px; right:-70px; image-rendering: pixelated;">
+			</div>
 			<p style="margin-bottom:0; margin-top:0;">
 				hello world! i'm ivy and this is my humble abode! ^_^
 			</p>
@@ -42,7 +45,7 @@
 				who has helped me throughout the development n
 				thank you for supporting me n my little webspace ^_^
 			</p>
-			<p>made with love, by ivory willows!!</p>
+			<p>made with love, by <a href="/about">ivory willows!!</a></p>
 		</div>
 	</fieldset>
 	<!-- <fieldset class="warning">
@@ -54,7 +57,6 @@
     </fieldset> -->
 	<fieldset class="thoughts" style="position: relative;">
 		<legend>how i'm feeling rn:</legend>
-		<img src="/assets/images/bendylook.gif" class="deco bendy" title="bendy leau :)" loading="lazy">
 		<div class="thoughts-sidebar">
 			<img src="assets/images/pfp.png" alt="ivy's pfp" class="pfp">
 			<!-- <a class="past-thoughts" href="thoughts.html">past thoughts</a> -->
@@ -74,6 +76,7 @@
 		<img src="assets/images/balloon.gif" alt="" class="deco" style="height:80px; margin-left:auto; z-index: 2; position: relative;">
 	</fieldset>
 	<fieldset class="lastfm" style="display: flex; gap: 1rem;">
+		<img src="/assets/images/bendylook.gif" draggable="false" class="deco bendy" title="bendy leau :)" loading="lazy">
 		<noscript>
 			<p>you need javascript enabled to see what i'm listening to!</p>
 			<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>

@@ -1,6 +1,7 @@
 use std::{collections::HashMap, fs};
+use log::{debug};
 
-use crate::contexts::retrieve_context;
+use crate::contexts::{blog::process_posts, retrieve_context};
 use minijinja::{Environment, Error, context};
 use walkdir::WalkDir;
 
@@ -17,7 +18,7 @@ pub fn get_environment() -> Environment<'static> {
             env.add_template_owned(name.clone(), source)
                 .expect("unable to create template");
 
-            println!("successfully added {}", name)
+            debug!("successfully added {}", name)
         }
     }
     env
@@ -41,11 +42,23 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
 
     for template in env.clone().templates() {
         // skip over _ and blog, handle that later
-        if template.0.starts_with("_") || template.0.starts_with("blog") {
+        if template.0.starts_with("_") {
             continue;
         };
         let content = generate_page(&env, template.0).await?;
         pages.insert(template.0.to_owned(), content);
+    }
+
+    // blog handling
+    for entry in process_posts() {
+        // oops oh my god i realized this is essentially just a different hard-written context
+        // this tots go against this rewrite's purpose but like whatever :PPP blehhh
+        let tmpl = env.get_template("_post.html").expect("unable to retrieve post template");
+        let html = tmpl.render(context! {
+            meta => entry.meta,
+            article => entry.html
+        }).expect("unable to render blogpost");
+        pages.insert("blog/".to_owned() + entry.slug.as_str() + ".html", html);
     }
 
     Ok(pages)
