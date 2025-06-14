@@ -8,7 +8,6 @@ use gray_matter::engine::YAML;
 use serde::{Deserialize, Serialize};
 
 use chrono::NaiveDate;
-use std::sync::LazyLock;
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Meta {

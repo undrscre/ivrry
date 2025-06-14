@@ -1,7 +1,51 @@
 let totalSplashes = {
     "categories": [
+        "me", // ME!! ME!! I WROTE THIS!!
+        "shoutout",
         "nthclub",
         "other"
+    ],
+    "me": [
+        "now written in rust!",
+        "Deltarune tomorrow",
+        "i stayed up until 4am to write this",
+        "check out my website https://127.0.0.1:3030/index.html",
+        "beep boop",
+        "mrrow",
+        "meow",
+        "paws at you",
+        "it's goop monday",
+        "ears caressing gif",
+        "Wasy!",
+        ">w<",
+    ],
+    "shoutout": [
+        // in no particular order;
+        "shoutout natalie",
+        "shoutout sundaedog",
+        "shoutout mayflower",
+        "shoutout oatmealine",
+        "shoutout icosahedra",
+        "shoutout ryoojiz",
+        "shoutout celestialexe",
+        "shoutout slime",
+        "shoutout finn",
+        "shoutout foggy",
+        "shoutout air2",
+        "shoutout kraafter",
+        "shoutout xiliam",
+        "shoutout wardo",
+        "shoutout zabregah",
+        "shoutout shadestaa",
+        "shoutout ivyclub",
+        "shoutout sky",
+        "shoutout yuri",
+        "shoutout b.6",
+        "shoutout hama",
+        "shoutout val",
+        "shoutout fuac",
+        "shoutout to those reading this right now",
+        // and shoutout to you!
     ],
     "nthclub": [
         "Splashes splashes... where's the water?",
@@ -34,8 +78,9 @@ let totalSplashes = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // the beast
-	let splash = totalSplashes[totalSplashes.categories[Math.floor(Math.random() * totalSplashes.categories.length)]][Math.floor(Math.random() * totalSplashes[totalSplashes.categories[Math.floor(Math.random() * totalSplashes.categories.length)]].length)];
+    let category = totalSplashes.categories[Math.floor(Math.random() * totalSplashes.categories.length)];
+    console.log(category);
+	let splash = totalSplashes[category][Math.floor(Math.random() * totalSplashes[category].length)];
     console.log(splash);
 	document.getElementById("splash-text").innerHTML = splash;
 });
