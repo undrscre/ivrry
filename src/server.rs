@@ -1,10 +1,9 @@
 use std::{collections::HashMap, sync::{mpsc, LazyLock, RwLock}, path::Path};
-use log::{debug, info, log};
+use log::{debug, info};
 use minijinja::Environment;
 use notify::{Event, RecursiveMode, Watcher, Result};
 use warp::Filter;
 use tokio::task;
-
 use crate::builder::generate_page;
 
 static PAGES: LazyLock<RwLock<HashMap<String, String>>> = LazyLock::new(|| RwLock::new(HashMap::new()));
@@ -64,7 +63,7 @@ pub async fn serve_pages(inp: HashMap<String, String>, env: &Environment<'static
         }
     });
 
-    info!("started server at http://127.0.0.1:3030");
+    info!("started dev server at http://127.0.0.1:3030");
     let assets = warp::path("assets").and(warp::fs::dir("assets"));
     let blog = warp::path("blog").and(posts.or(post));
     let routes = assets.or(index).or(blog).or(catchall);
@@ -73,3 +72,9 @@ pub async fn serve_pages(inp: HashMap<String, String>, env: &Environment<'static
         .await;
 }
 
+pub async fn serve_folder(folder: String) {
+    let folder = warp::fs::dir(folder);
+    info!("started preview server at http://127.0.0.1:3030");
+    warp::serve(folder).run(([127, 0, 0, 1], 3030))
+    .await;
+}

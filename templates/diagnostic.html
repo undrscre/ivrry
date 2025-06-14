@@ -1,0 +1,17 @@
+<html>
+    <h1>hello! welcome to build.html</h1>
+    <p>this webpage is designed for build diagnostics, essentially stats for nerds</p>
+    <hr>
+    <h2>build stats</h2>
+    <ul>
+        <li>the site was last built on {{ build_time }}</li>
+        <li>using source commit: {{ git_commit }}</li>
+    </ul>
+    <hr>
+    <h2>compiler info</h2>
+    <ul>
+        {% for line in compiler_info %}
+            <li>{{ line }}</li>
+        {% endfor %}
+    </ul>
+</html>
