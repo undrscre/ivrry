@@ -13,7 +13,7 @@ pub fn get_environment() -> Environment<'static> {
         let entry = entry.unwrap();
         if entry.file_type().is_file() {
             // what the fuck
-            let name = entry.path().to_str().unwrap().replace("templates/", "");
+            let name = entry.path().to_str().unwrap().replace("templates\\", "").replace("\\","/");
             let source = fs::read_to_string(&entry.path()).expect("unable to get source");
             env.add_template_owned(name.clone(), source)
                 .expect("unable to create template");
@@ -58,6 +58,7 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
             meta => entry.meta,
             article => entry.html
         }).expect("unable to render blogpost");
+
         pages.insert("blog/".to_owned() + entry.slug.as_str() + ".html", html);
     }
 
@@ -66,11 +67,11 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
 
 pub fn consolidate(pages: HashMap<String, String>) -> Result<String, std::io::Error> {
     fs::create_dir_all(OUT_DIR)?;
-    fs::create_dir_all(format!("{}/assets", OUT_DIR))?;
-    fs::create_dir_all(format!("{}/blog", OUT_DIR))?;
+    fs::create_dir_all(format!("{}\\assets", OUT_DIR))?;
+    fs::create_dir_all(format!("{}\\blog", OUT_DIR))?;
 
     for page in pages {
-        fs::write(format!("{}/{}", OUT_DIR, page.0), page.1)?;
+        fs::write(format!("{}\\{}", OUT_DIR, page.0), page.1)?;
     }
 
     let mut options = fs_extra::dir::CopyOptions::new();
