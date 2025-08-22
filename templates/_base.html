@@ -7,6 +7,8 @@
 	<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="/assets/css/global.css">
 	<link rel="stylesheet" type="text/css" href="{% block css %}{% endblock %}">
+	{% block head %}
+	{% endblock %}
 </head>
 
 <body>
@@ -38,12 +40,12 @@
 					<li><a href="/buttons">buttons</a></li>
 				</ul>
 			</li>
-			<li>
+			<!-- <li>
 				<span>extras:</span>
 				<ul>
 					<li><a href="/fun/seaofmusic">sea of albums</a></li>
 				</ul>
-			</li>
+			</li> -->
 		</ul>
 		<!-- <marquee class="deco" behavior="scroll" direction="left" scrollamount="8" class="marquee" style="width:100%;">
 			<!-- <img src="/assets/images/stamps/" alt="a stamp" class="stam["> 

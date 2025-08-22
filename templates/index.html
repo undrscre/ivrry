@@ -1,6 +1,9 @@
 {% extends "_base.html" %}
 {% block title %}ivy's home{% endblock %}
 {% block css %}assets/css/index.css{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="https://unpkg.com/7.css/dist/7.scoped.css">
+{% endblock%}
 {% block content %}
 	<fieldset>
 		<legend>welcome to my site</legend>
@@ -75,29 +78,45 @@
 		</div>
 		<img src="assets/images/balloon.gif" alt="" class="deco" style="height:80px; margin-left:auto; z-index: 2; position: relative;">
 	</fieldset>
-	<fieldset class="lastfm" style="display: flex; gap: 1rem;">
-		<img src="/assets/images/bendylook.gif" draggable="false" class="deco bendy" title="bendy leau :)" loading="lazy">
-		<noscript>
-			<p>you need javascript enabled to see what i'm listening to!</p>
-			<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>
-			<p>but if u don't wanna, that's ok :)
-		</noscript>
-		<img src="assets/images/cd.gif" alt="" class="cd deco">
+	<div class="win7">
+		<div class="window glass active">
+			<img src="/assets/images/bendylook.gif" draggable="false" class="deco bendy" title="bendy leau :)" loading="lazy">
+			<div class="title-bar">
+				<div class="title-bar-text" id="lastfm-status">currently listening to:</div>
+				<div class="title-bar-controls">
+					<button aria-label="Minimize"></button>
+					<button aria-label="Close"></button>
+				</div>
+			</div>
+			<div class="window-body has-space lastfm" style="display: flex; gap:1rem;">
+				<noscript>
+					<p>you need javascript enabled to see what i'm listening to!</p>
+					<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>
+					<p>but if u don't wanna, that's ok :)
+				</noscript>
+			</div>
+		</div>
 		<template id="lastfm-template">
-			<legend></legend>
 			<img class="listening-art" alt="album art">
+			<img class="listening-bg" alt="album art">
 			<div style="position: relative; z-index:5;">
 				<!-- todo: refactor because holy hell -->
-				<h1 class="listening-title" style="width: 20ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></h1>
+				<h1 class="listening-title" style="width: 20ch; white-space: nowrap; text-overflow: ellipsis; text-shadow: 0px 5px 10px #0000008a;"></h1>
 				<p style="width: 40ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 					on <b class="splash album-name"></b>
-					<br>by <b class="splash artist-name"></b>
+					<br>by <b class="splash artist-name" style="margin-left: 1px;"></b>
 				</p>
 				<br>
+				<a><button>listen on lastfm!</button></a> - 
 				<span class="lastfm-link"></span>
 			</div>
 		</template>
-	</fieldset>
+	</div>
+	<!-- <fieldset class="lastfm" style="display: flex; gap: 1rem;">
+		
+		<img src="assets/images/cd.gif" alt="" class="cd deco">
+		
+	</fieldset> -->
 	<!-- feature will never be implemented, sorry lol -->
 	<!-- <fieldset id="chatbox">
 		<legend>talk to people!</legend>

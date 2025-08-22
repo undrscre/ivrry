@@ -1,13 +1,13 @@
 async function updateSiteStats() {
 	const username = "ivrry";
 	try {
-		const request = await fetch(`https://nekoweb.org/api/site/info/${username}`);
+		const request = await fetch(`https://nekoweb.org/api/site/info/${username}.nekoweb.org`);
 		const response = await request.json();
 		const date = new Date(response.updated_at).toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' });
-
-		document.getElementById('visitors').textContent = response.views.toString().padStart(4, '0');
+		console.log(response)
+		document.getElementById('visitors').textContent = response.views.toString().padStart(5, '0');
 		document.getElementById('updated').textContent = date;
-		document.getElementById('followers').textContent = response.followers.toString().padStart(4, '0');
+		document.getElementById('followers').textContent = response.followers.toString().padStart(5, '0');
 
 	} catch (err) {
 		console.error(err)

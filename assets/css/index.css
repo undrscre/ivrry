@@ -1,9 +1,50 @@
 .lastfm {
 	position:relative;
-	overflow: visible;
+	overflow: clip;
+	background: black;
+	color:white;
+	font:9pt "Segoe UI","SegoeUI","Noto Sans",sans-serif;
 }
+.win7 .splash {
+	background-color: transparent;
+	color:white;
+	font-weight: bolder;
+	font-style: italic;
+	padding:0;
+	text-shadow: 0px 4px 10px #0000008a;
+}
+.window {
+	border: 1px solid var(--w7-w-bd);
+	box-shadow: 2px 2px 10px 1px var(--w7-w-bd),inset 0 0 0 1px #fffa;
+	font: var(--w7-font);
+	position: relative;
+	z-index: 0;
+}
+.window-body {
+	background-color: #10101a;
+}
+.listening-bg {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	filter: blur(1px) brightness(80%);
+	transform: translate(-50%, -50%) scale(500%);
+}
+.window-body::after {
+	content:'' ;
+	position: absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	background: linear-gradient(to bottom, transparent, #0000008a)
+}
+
 .listening-art {
 	width: 120px;
+	position: relative;
+	z-index:10;
+	box-shadow: 0px 12px 10px #0000008a;
 	height: 120px;
 }
 .lastfm-link a {
