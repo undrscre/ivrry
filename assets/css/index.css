@@ -143,3 +143,39 @@
 .updates {
 	flex-grow:1;
 }
+
+#gleach {
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	font-size: 20px;
+	background: #10101a;
+	flex-grow: 1;
+	padding:10px;
+	border: 1px solid #585b70;
+	padding-left: 10px;
+	padding-right: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#gleach a:not(.the-creature-blur) {
+	/* position: relative; */
+	z-index: 50;
+}
+.the-creature {
+	position: absolute;
+	left: 80px;
+	bottom:-80px;
+	z-index: 3420;
+	scale: 1.25;
+}
+
+.the-creature-blur {
+	position: absolute;
+	left: 71%; /* idk */
+	transform: translateX(-50%);
+	scale: 3;
+	z-index: 0;
+	filter: blur(10px) saturate(150%) brightness(50%);
+}

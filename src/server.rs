@@ -1,5 +1,5 @@
 use std::{collections::HashMap, path::{Path, PathBuf}, sync::{mpsc, LazyLock, RwLock}};
-use log::{debug, info};
+use log::info;
 use minijinja::Environment;
 use notify::{Event, RecursiveMode, Watcher, Result};
 use warp::Filter;
