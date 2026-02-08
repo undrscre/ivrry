@@ -1,7 +1,7 @@
 use std::{collections::HashMap, fs};
 use log::{debug};
 
-use crate::contexts::{blog::process_posts, retrieve_context};
+use crate::contexts::{retrieve_context};
 use minijinja::{Environment, Error, context};
 use walkdir::WalkDir;
 
@@ -47,19 +47,6 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
         };
         let content = generate_page(&env, template.0).await?;
         pages.insert(template.0.to_owned(), content);
-    }
-
-    // blog handling
-    for entry in process_posts() {
-        // oops oh my god i realized this is essentially just a different hard-written context
-        // this tots go against this rewrite's purpose but like whatever :PPP blehhh
-        let tmpl = env.get_template("_post.html").expect("unable to retrieve post template");
-        let html = tmpl.render(context! {
-            meta => entry.meta,
-            article => entry.html
-        }).expect("unable to render blogpost");
-
-        pages.insert("blog/".to_owned() + entry.slug.as_str() + ".html", html);
     }
 
     Ok(pages)
