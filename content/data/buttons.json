@@ -57,14 +57,24 @@
             "art":"https://moosyu.nekoweb.org/assets/button.png"
         },
         {
-            "name":"thinliquid's studio",
-            "url":"https://thinliquid.dev/",
-            "art":"https://thinliquid.dev/thnlqd.png"
-        },
-        {
             "name":"THE CALZONE!!<hr>cal personally told me to write<br><i>\"addicted to the shindig\" here</i><br>so i'm like <i>\"yea sure lol :proud:\"</i>",
             "url":"https://alliedalmond.nekoweb.org",
             "art":"https://i.ibb.co/f3tdLH2/almond.gif"
+        },
+        {
+            "name": "benjae's site",
+            "url":"https://sillydomain.name",
+            "art":"https://sillydomain.name/assets/buttons/benjae.png"
+        },
+        {
+            "name": "spax.zone",
+            "url":"https://spax.zone",
+            "art":"https://spax.zone/buttons/spaxdotzone.gif"
+        },
+        {
+            "name":"nat.envs.sh",
+            "url":"https://nat.envs.sh",
+            "art":"/assets/images/buttons/natalie.png"
         }
     ],
     "recco":[
