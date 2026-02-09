@@ -1,0 +1,87 @@
+html {
+    width: 100vw;
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+
+body {
+    margin: 0;
+}
+
+.bg {
+    content: "";
+    position: absolute;
+    z-index: -5;
+    width: 100vw;
+    height: 100vh;
+    top:0;
+    opacity:0.25;
+    left:0;
+    background: url('/assets/images/stars.png');
+}
+
+.container {
+    width: 750px;
+    font-family: MS Gothic, monospace;
+
+    padding-top:10px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    background: white;
+    margin:0;
+    height: 100vh;
+
+    z-index: 2;
+    /* filter: saturate(0%); */
+    image-rendering: pixelated;
+}
+
+*:not(body, html, .container, .bg) {
+    filter: saturate(0%) brightness(90%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
+}
+
+/* mraow */
+hr {
+    border:none;
+    border-top: 2px dotted gray;
+    height:0;
+    box-sizing: content-box;
+}
+
+fieldset {
+    position: relative;
+}
+
+nav a {
+    text-decoration: underline;
+}
+
+nav a:hover {
+    background-color: gray;
+    color:white;
+    cursor: pointer;
+}
+
+nav a:hover::before {
+    content: "→ ";
+}
+
+.messy {
+    border:none;
+    position: relative;
+    height:5px;
+    overflow: visible;
+}
+
+.messy::after {
+    content: "";
+    position: absolute;
+    background: url("/assets/images/messy-hr.png");
+    width: 750px;
+    border: none;
+    height: 30px;
+    top:50%;
+    transform: translateY(-50%);
+}
