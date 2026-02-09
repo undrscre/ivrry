@@ -7,7 +7,7 @@
 .header-title h1 {
     margin: 0;
     width:fit-content;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     transform: scaleX(2);
     transform-origin: 0% 50%;
     z-index: 4;
@@ -30,7 +30,6 @@
 
 .sticky-note img {
     height: 100%;
-    filter: drop-shadow(-15px 20px 15px #8888882c);
 }
 
 .sticky-note p {
@@ -42,4 +41,19 @@
     margin:0;
     text-align: center;
     transform: translate(-50%, -50%) rotate(-9deg);
+}
+
+.note-padding {
+    float: right;
+    width: 150px;
+    height: 150px;
+}
+
+.space-deco1 {
+    background: url("/assets/images/7_49.gif");
+    width:500px;
+    height:100%;
+
+    background-size: 300%;
+    background-position: 100% 100%;
 }

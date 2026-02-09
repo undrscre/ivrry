@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}sanctuary{% endblock %}</title>
+
+        <link rel="stylesheet" href="/assets/css/global.css">
+
+        <link rel="stylesheet" href="/assets/css/index.css">
+    </head>
+    <body>
+        <div class="bg"></div>
+        <div class="container">
+            <div class="deco bg-deco1">
+                <img src="/assets/images/bgdeco1.png">
+            </div>
+            <header>
+                <div class="header-title">
+                    <h1>ivrry ♡</h1>
+                    <img src="/assets/images/valley.jpg">
+                </div>
+            </header>
+            <hr>
+                <marquee>
+                    <span> aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa </span>
+                </marquee>
+            <hr>
+            <nav>
+                <a>home</a>
+                <a>about</a>
+                <a>blog</a>
+                <a>projects</a>
+            </nav>
+            <hr class="messy">
+            {% block content %}
+            {% endblock %}
+            <hr class="messy" style="transform: scaleX(-1); margin-top: 15px;">
+            <p align="right" style="margin-top:0;">made with ♡</p>
+        </div>
+    </body>
+</html>

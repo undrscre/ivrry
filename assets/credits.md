@@ -5,3 +5,5 @@ awa.png image source unknown
 stars.png image source unknown
 
 messy-hr.png Hi i made this
+
+7_49.gif [from 17776](https://www.sbnation.com/a/17776-football/chapter-1)
