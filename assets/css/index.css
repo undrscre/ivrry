@@ -57,3 +57,7 @@
     background-size: 300%;
     background-position: 100% 100%;
 }
+
+.barcode {
+    opacity: 0.25;
+}

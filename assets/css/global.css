@@ -46,7 +46,7 @@ body {
     border-right: 1px dashed #8d8cd093;
 }
 
-img, .filter {
+img:not(.exempt), .filter {
     filter: saturate(0%) brightness(90%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
 }
 
@@ -63,6 +63,10 @@ fieldset {
     position: relative;
     background-color: white;
     border-color: #8d8cd0;
+}
+
+p {
+    margin-bottom: 0;
 }
 
 nav a {
