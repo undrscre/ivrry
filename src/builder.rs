@@ -1,7 +1,7 @@
+use log::debug;
 use std::{collections::HashMap, fs};
-use log::{debug};
 
-use crate::contexts::{retrieve_context};
+use crate::contexts::retrieve_context;
 use minijinja::{Environment, Error, context};
 use walkdir::WalkDir;
 
@@ -13,7 +13,14 @@ pub fn get_environment() -> Environment<'static> {
         let entry = entry.unwrap();
         if entry.file_type().is_file() {
             // what the fuck
-            let name = entry.path().to_str().unwrap().replace("templates\\", "").replace("\\","/");
+            let name = entry
+                .path()
+                .as_os_str()
+                .to_owned()
+                .to_str()
+                .unwrap()
+                .to_string()
+                .replace("templates/", "");
             let source = fs::read_to_string(&entry.path()).expect("unable to get source");
             env.add_template_owned(name.clone(), source)
                 .expect("unable to create template");
