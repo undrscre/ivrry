@@ -1,0 +1,60 @@
+h1:first-of-type {
+    font-size: 3em;
+    margin-top:0;
+}
+
+body {
+    /* padding-bottom: 200px; */
+    height: max-content;
+}
+
+.heart {
+    filter: saturate(0%) brightness(120%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
+}
+
+.repo-card {
+    position:absolute;
+    border:1px black solid;
+    background:white;
+    padding:.5em;
+}
+
+.repo-card:hover, .button-item:hover {
+    display: inline-block;
+    z-index: 1000 !important;
+}
+
+.button-item {
+    filter: saturate(0%) brightness(120%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
+}
+
+.button-item:hover {
+    filter: none;
+    scale:1.2;
+}
+
+html:has(#darkcheck:checked) .button-item:hover {
+    filter: invert(1) !important;
+}
+
+a > h2 {
+    margin: none;
+}
+
+.evil {
+    image-rendering: pixelated;
+    width:100vw;
+    position: absolute;
+    left:0;
+    bottom:-6000px;
+    display: flex;
+    flex-direction: column;
+}
+
+.evil img {
+    width: 100vw;
+}
+
+html:has(#darkcheck:checked) .evil img {
+    filter: invert(1) !important;
+}

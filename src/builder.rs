@@ -61,11 +61,11 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
 
 pub fn consolidate(pages: HashMap<String, String>) -> Result<String, std::io::Error> {
     fs::create_dir_all(OUT_DIR)?;
-    fs::create_dir_all(format!("{}\\assets", OUT_DIR))?;
-    fs::create_dir_all(format!("{}\\blog", OUT_DIR))?;
+    fs::create_dir_all(format!("{}/assets", OUT_DIR))?;
+    fs::create_dir_all(format!("{}/blog", OUT_DIR))?;
 
     for page in pages {
-        fs::write(format!("{}\\{}", OUT_DIR, page.0), page.1)?;
+        fs::write(format!("{}/{}", OUT_DIR, page.0), page.1)?;
     }
 
     let mut options = fs_extra::dir::CopyOptions::new();

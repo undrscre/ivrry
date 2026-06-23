@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+    <head>
+        {% block head %}
+        <title>ivrry</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/assets/css/global.css">
+        {% endblock %}
+    </head>
+    <body>
+        <div class="bg"></div>
+        <img src="/assets/images/metro_38.png" class="bg-element1" draggable="false">
+        <img src="/assets/images/metro_62.png" class="bg-element2" draggable="false">
+        <img src="/assets/images/patent1.png" class="bg-element3" draggable="false">
+        
+        <div class="horizontal-bb"></div>
+        <div class="vertical-bb"></div>
+        
+        <h1 class="sidetext">私のクールなウェブサイト</h1>
+
+        <div class="container" style="position:relative">
+            {% block content %}{% endblock %}
+        </div>
+        
+        <div class="link-corner" style="position: fixed; right: 20px; bottom: 20px; text-align:right;">
+            <div style="display: flex; gap:1em">
+                <p style="flex-grow: 1;"><input type="checkbox" id="darkcheck">invert?</p>
+                <p style="flex-grow: 1;">part of <a href="https://encodeco.de">↝encodeco.de</a> (sort of)</p>
+            </div>
+            <iframe id="bucket-webring" style="width: 400px; height: 3rem; border: none;" src="https://webring.bucketfish.me/embed.html?name=ivy's home&lightmode=true"></iframe> 
+        </div>
+
+        {% block custom %}{% endblock %}
+    </body>
 </html>

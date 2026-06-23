@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@87.5,200..900&display=swap');
+
+html:has(#darkcheck:checked) {
+    filter: invert(1);
+}
+
+p, li {
+    background:white;
+    color:black;
+}
+
+h2 {
+    width: fit-content;
+    background-color: white;
+    /* color: beige; */
+}
+
+body {
+    margin: 0 auto;
+    width: 40%;
+    min-width:300px;
+    padding-top: 64px;
+    font-family: "Inconsolata", monospace;
+    background-image: url("/assets/images/what.png");
+    /* overflow: clip; */
+    /* overflow-x: clip; */
+}
+
+*::selection {
+    color: white;
+    background-color: #8d8cd0;
+    visibility: hidden;
+}
+
+.horizontal-bb, .vertical-bb {
+    border: 1px rgba(1,1,1,0.1) solid;
+    position: absolute;
+}
+
+.horizontal-bb {
+    width: 100vw;
+    left:0;
+    top: 64px;
+}
+
+.vertical-bb {
+    height:100%;
+    left:auto;
+    position: absolute;
+    top:0;
+}
+
+.subtext {
+    opacity: 0.25;
+}
+
+.bg {
+    background: url("/assets/images/glitch-baked.png");
+    height:100vh;
+    min-width:500px;
+    width: 30vw;
+    position: fixed;
+    background-size:max(30vw, 500px);
+    left:0;
+    top:0;
+    z-index: -1;
+    opacity: 1;
+    animation: 40s scroll infinite linear alternate;
+    mask-image: linear-gradient(to right, black, black 90%, transparent 100%);
+}
+
+@keyframes scroll {
+    from {
+        background-position: 0px 0px;
+    }
+    
+    to {
+        background-position: 0px max(50vw, 1200px);
+    }
+}
+
+.sidetext {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size:120px;
+    /* font-family: 'DotGothic16', MS Gothic, monospace; */
+    
+    position:absolute;
+    left:auto;
+    
+    top:64px;
+    
+    transform: translateX(-1.70em);
+    opacity: 0.1;
+    height: max-content;
+    user-select:none;
+    
+    pointer-events: none;
+}
+
+.bg-element1 {
+    position:fixed;
+    bottom:0;
+    opacity: 0.1;
+    right:-10%;
+    image-rendering: pixelated;
+    pointer-events: none;
+    width:2048px;
+    z-index: -2;
+}
+
+.bg-element2 {
+    position:absolute;
+    top:64px;
+    opacity: 1;
+    left: 32%;
+    image-rendering: pixelated;
+    pointer-events: none;
+    width:50vw;
+    max-width:1024px;
+    min-width:800px;
+    
+    transform: translateX(30%);
+}
+
+.bg-element3 {
+    position: absolute;
+    left:auto;
+    top:35%;
+    width:50vw;
+    max-width:1200px;
+    min-width:800px;
+    z-index:-100;
+    image-rendering: pixelated;
+    opacity: 0.1;
+    mask-image: linear-gradient(to bottom, black, black 90%, transparent);
+}
+
+.evil-class-name {
+    width: 100%;
+    position: absolute;
+    top:0;
+    height:16px;
+    left:0;
+    background: repeating-linear-gradient(35deg, #8d8cd0 0%, #8d8cd0 10px, #363a58 10px, #363a58 20px);
+}
+@media screen and (width <= 1200px) {
+    body {
+    margin: 0 0;
+    width: 100%;
+    padding-left:80px;
+    min-width:300px;
+    }
+    
+    .bg-element2 {
+        left:15%;
+    }
+    
+    .bg {
+        rotate:180deg;
+        left:60%;
+    }
+}
