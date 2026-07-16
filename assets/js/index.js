@@ -5,14 +5,12 @@ function connectToHeader(container, cardElem, headerElem) {
     const hRect = headerElem.getBoundingClientRect();
     const rRect = cardElem.getBoundingClientRect();
 
-    // chaos origins: pick any point along the header's edge
     const originX = (hRect.left + getRandomInt(hRect.width)) - cRect.left + getRandomInt(5);
     const originY = (hRect.top + getRandomInt(hRect.height * 3)) - cRect.top;
     
     const targetX = (rRect.left + getRandomInt(rRect.width)) - cRect.left;
     const targetY = (rRect.top + getRandomInt(rRect.height)) - cRect.top;
 
-    // vertical segment with a bit of horizontal jitter
     const vLine = document.createElement('div');
     vLine.style.cssText = `
         position: absolute; border-left: 1px solid black; 
@@ -153,11 +151,63 @@ async function updateLastFM() {
 document.addEventListener('DOMContentLoaded', () => {
 	updateLastFM();
 
-    const tags = ['p','h1','h2','h3','h4','h5','h6','span','a','li','td','th','label','button','blockquote','figcaption','legend','dt','dd'];
+    const tags = ['p','h1','h2','h3','h4','h5','h6','span','a','li','td','th','label','button','figcaption','legend','dt','dd'];
     const all = [...document.querySelectorAll(tags.join(','))];
     for (let index = 0; index < (all.length / 5); index++) {
         const el = all[Math.floor(Math.random() * all.length)];
         el.style.setProperty('font-family', 'serif', 'important');
-    }    
+    }
+    bullshit()
 });
 
+function bullshit() {
+    let canvas = document.getElementById("stupid-and-evil")
+    let ctx = canvas.getContext("2d");
+    canvas.style.position = "absolute";
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    // go my google.com
+    const pageWidth = Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.body.clientWidth,
+        document.documentElement.clientWidth
+        );
+
+        const pageHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.offsetHeight,
+        document.body.clientHeight,
+        document.documentElement.clientHeight
+        );
+
+    canvas.width = pageWidth
+    canvas.height = pageHeight
+
+    console.log("aaa")
+    hi.forEach(function(box){ctx.fillStyle="#4b1225";ctx.fillRect(...box)})
+    document.addEventListener("mousemove", (e) => {
+        console.log("awaaa")
+        ctx.fillStyle="#f45088"
+        let x = e.pageX;
+        let y = e.pageY;
+        const size = Math.trunc(5+Math.random()*50)
+        ctx.fillRect(x-size/2,y-size*0.5,size,size);
+    })
+
+    setInterval(() => {
+        ctx.fillStyle = "#f45088";
+        console.log("hi")
+        const blobCount = 2 + Math.trunc(Math.random() * 4);
+        for (let i = 0; i < blobCount; i++) {
+            const x = Math.random() * canvas.width;
+            const y = Math.random() * canvas.height;
+            const size = Math.trunc(20 + Math.random() * 50);
+            ctx.fillRect(x - size / 2, y - size / 2, size, size);
+        }
+    }, 10000);
+}

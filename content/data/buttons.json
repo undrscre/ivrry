@@ -119,6 +119,16 @@
             "name":"benjae",
             "url":"https://sillydomain.name/",
             "art":"https://sillydomain.name/assets/buttons/benjae.png"
+        },
+        {
+            "name":"yugoslavia",
+            "url":"https://yugoslavia.best/",
+            "art":"/assets/images/yugoslavia.png"
+        },
+        {
+            "name":"evilslavia",
+            "url":"/",
+            "art":"/assets/images/evilslavia.png"
         }
     ]
 }

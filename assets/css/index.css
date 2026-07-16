@@ -9,7 +9,7 @@ body {
 }
 
 .heart {
-    filter: saturate(0%) brightness(120%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
+    filter: brightness(1) saturate(40%) invert(0%) sepia(87%) saturate(3476%) hue-rotate(311deg) brightness(98%) contrast(95%);
 }
 
 .repo-card {
@@ -25,7 +25,7 @@ body {
 }
 
 .button-item {
-    filter: saturate(0%) brightness(120%) invert(11%) sepia(42%) saturate(397%) hue-rotate(199deg) brightness(97%) contrast(98%);
+    filter: brightness(1) saturate(40%) invert(0%) sepia(87%) saturate(3476%) hue-rotate(311deg) brightness(98%) contrast(95%);
 }
 
 .button-item:hover {

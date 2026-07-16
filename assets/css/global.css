@@ -28,7 +28,7 @@ body {
 
 *::selection {
     color: white;
-    background-color: #8d8cd0;
+    background-color: #f45088;
     visibility: hidden;
 }
 
@@ -122,7 +122,9 @@ body {
     
     transform: translateX(30%);
 }
-
+a {
+    color:#f45088;
+}
 .bg-element3 {
     position: absolute;
     left:auto;
@@ -142,7 +144,7 @@ body {
     top:0;
     height:16px;
     left:0;
-    background: repeating-linear-gradient(35deg, #8d8cd0 0%, #8d8cd0 10px, #363a58 10px, #363a58 20px);
+    background: repeating-linear-gradient(35deg, #f45088 0%, #f45088 10px, #4b1225 10px, #4b1225 20px);
 }
 @media screen and (width <= 1200px) {
     body {
