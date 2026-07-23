@@ -129,6 +129,16 @@
             "name":"evilslavia",
             "url":"/",
             "art":"/assets/images/evilslavia.png"
+        },
+        {
+            "name":"maxie!",
+            "url":"https://maxy.top",
+            "art":"https://maxy.top/static/maxybutton.svg"
+        },
+        {
+            "name":"qiinr",
+            "url":"https://qiinr.nekoweb.org",
+            "art":"https://qiinr.nekoweb.org/artwork/BUTTON.gif"
         }
     ]
 }
