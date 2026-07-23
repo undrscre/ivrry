@@ -21,7 +21,7 @@ body {
     min-width:300px;
     padding-top: 64px;
     font-family: "Inconsolata", monospace;
-    background-image: url("/assets/images/what.png");
+    background-image: url("/archive/july/assets/images/what.png");
     /* overflow: clip; */
     /* overflow-x: clip; */
 }
@@ -55,7 +55,7 @@ body {
 }
 
 .bg {
-    background: url("/assets/images/glitch-baked.png");
+    background: url("/archive/july/assets/images/glitch-baked.png");
     height:100vh;
     min-width:500px;
     width: 30vw;

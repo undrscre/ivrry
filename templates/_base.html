@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <title>ivrry</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <h1>ivrry</h1>
+            <ul>
+                <span>navigation <img src="/assets/svg/arrow.svg"></span>
+                <li><span class="hidden">navigation</span><a>index</a></li>
+                <li><span class="hidden">navigation</span><a>about</a></li>
+                <li><span class="hidden">navigation</span><a>art</a></li>
+                <li><span class="hidden">navigation</span><a>friends</a></li>
+            </ul>
+            <ul>
+                <span>socials <img src="/assets/svg/arrow.svg"></span>
+                <li><span class="hidden">socials</span><a>discord</a></li>
+                <li><span class="hidden">socials</span><a>email</a></li>
+                <li><span class="hidden">socials</span><a>signal</a></li>
+                <li><span class="hidden">socials</span><a>git</a></li>
+            </ul>
+            <ul>
+                <span>other <img src="/assets/svg/arrow.svg"></span>
+                <li><span class="hidden">other</span><a>archive</a></li>
+                <li><span class="hidden">other</span><a>guestbook</a></li>
+                <li><span class="hidden">other</span><a>webrings</a></li>
+                <li><span class="hidden">other</span><a></a></li>
+            </ul>
+            
+        </nav>
+        <hr>
+        <content>
+            {% block content %}
+            {% endblock %}
+        </content>
+        <hr>
+    </main>
+    <img src="/assets/svg/arrow.svg">
+</body>
+</html>

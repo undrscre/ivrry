@@ -85,8 +85,9 @@ pub async fn serve_pages(inp: HashMap<String, String>, env: &Environment<'static
 
     info!("started dev server at http://127.0.0.1:3030");
     let assets = warp::path("assets").and(warp::fs::dir("assets"));
+    let archive = warp::path("archive").and(warp::fs::dir("archive"));
     // let blog = warp::path("blog").and(posts.or(post));
-    let routes = assets.or(index).or(catchall);
+    let routes = assets.or(archive).or(index).or(catchall);
     warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
 }
 

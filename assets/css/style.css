@@ -1,0 +1,128 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    margin:50px;
+    display: flex;
+    justify-content: center;
+    /* max-width: 1024px; */
+    gap:1em;
+}
+
+hr {
+    margin:0;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    /* margin:25px; */
+    padding:1.5em;
+    border: 1px dashed black;
+}
+
+h1 {
+    margin:0;
+}
+
+nav {
+    display: flex;
+    /* flex-direction: column; */
+    width:100%;
+    gap:calc(2em + 16px);
+}
+
+body img {
+    align-self: flex-start;
+    width:128px;
+}
+
+nav ul {
+    margin:0;
+    list-style: none;
+    padding:0;
+}
+
+nav ul:nth-of-type(1) span:not(li span) {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #366690;
+        left:-20px;
+    }
+}
+
+nav ul:nth-of-type(2) span:not(li span) {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #7b7c7d;
+        left:-20px;
+    }
+}
+
+nav ul:nth-of-type(3) span:not(li span) {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #ceb6a6;
+        left:-20px;
+    }
+}
+
+
+nav ul li:hover * {
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+nav ul span img {
+    height: 1em;
+    width: 1em;
+}
+
+nav ul li a {
+    color:black;
+    font-weight: bold;
+}
+
+nav ul li a::after {
+    content: '↘';
+    position: absolute;
+    margin:0;
+    padding:0;
+    padding-left: 2px;
+}
+
+.hidden {
+    opacity:0.5
+    /* visibility: hidden; */
+}
+
+.art {
+    max-width: 800px;
+    width: 100vw;
+    image-rendering: pixelated;
+    /* height:200px; */
+    object-fit: cover;
+}
