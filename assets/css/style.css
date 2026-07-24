@@ -3,6 +3,9 @@
   font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
 }
 
+* {
+    box-sizing: border-box;
+}
 @supports (font-variation-settings: normal) {
   :root { font-family: InterVariable, sans-serif; }
 }
@@ -17,6 +20,8 @@ body {
 
 hr {
     margin:0;
+    border-color: white;
+    /* height:5px; */
     width: 100%;
 }
 
@@ -114,6 +119,14 @@ nav ul li a::after {
     padding-left: 2px;
 }
 
+nav ul li:hover a::after {
+    content: '↗';
+    position: absolute;
+    margin:0;
+    padding:0;
+    padding-left: 8px;
+}
+
 .hidden {
     opacity:0.5
     /* visibility: hidden; */
@@ -125,4 +138,36 @@ nav ul li a::after {
     image-rendering: pixelated;
     /* height:200px; */
     object-fit: cover;
+}
+
+.subtext {
+    opacity:0.5
+}
+
+.flex-col {
+    flex-direction: column;
+    display: flex;
+    gap:0.5em;
+}
+
+@media only screen and (max-width: 1050px) {
+    body {
+        justify-content: initial;
+        flex-direction: column;
+    }
+    main {
+        border:none;
+        margin:0;
+    }
+    nav {
+        flex-direction: column;
+        gap:1em;
+    }
+    .art {
+        width:100%;
+        max-width: none;
+    }
+    .hide-mobile {
+        display: none;
+    }
 }
