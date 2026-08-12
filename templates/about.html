@@ -1,0 +1,83 @@
+{% extends "_base.html" %}
+{% block content %}
+    <div class="flex-col">
+        <div style="position: relative; z-index: 123;">
+            <div class="airport-header type-1">
+                <img src="/assets/svg/arrow2.svg" width="32">
+                <h2>who am i?</h2>
+                <svg style="margin-left: auto; margin-right:1em; width: 2em;" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.94922 -7.01602e-07L14 9.05078L14 -3.0598e-07L21 0L21 21L-9.17939e-07 21L-6.11959e-07 14L9.05078 14L-2.16337e-07 4.94922L0 -9.17939e-07L4.94922 -7.01602e-07Z" fill="currentColor"/>
+                </svg>
+            </div>
+            <img src="/assets/images/winter-1.png" style="width: 100%; height: 80px; object-fit: cover; border: 1px solid black; border-top: none;">
+        </div>
+        <div style="text-align: justify;"">
+            <figure style="float: right; margin:0; margin-left: 1em; padding:0; position: relative;">
+                <img src="/assets/images/form-1.png" class="hide-mobile" style="width:300%; position: absolute; opacity: 0.15; rotate:180deg; scale: 3; top:200px; z-index: 0; right:120px; mask-image: radial-gradient(white 20%, transparent 33%); pointer-events: none;">
+                <img src="/assets/images/image.png" class="shadow" style="height:300px; width:auto; padding:5px; border: 1px dashed black; background-color: white; position: relative; z-index: 4;">
+                <figcaption class="subtext">image of my sona Niko<br>drawn by kylefur</figcaption>
+            </figure>
+            <p style="position: relative; z-index: 4;">
+                hello world, my name is <span class="evil-censored-bar">noelle willows</span>. i am a 
+                <select>
+                    <option>multimedia creative</option>
+                    <option>graphics designer</option>
+                    <option>music producer</option>
+                    <option>programmer</option>
+                    <option>furry</option>
+                    <option>puppy</option>
+                    <option>kitty</option>
+                    <!-- <option>plural system</option> wehh -->
+                    <option>transgender</option>
+                    <option>pansexual</option>
+                    <option>queer</option>
+                    <option>neurodivergent</option>
+                    <option>css haxor</option>
+                </select>
+                girl living in <span class="evil-censored-bar">the middle of nowhere.</span> that's basically the gist of who i am as a person.
+            </p>
+            <p style="position: relative; z-index: 4;">i have been programming for about 4-5 years now, although i still haven't gotten good at any of this computer stuff. i am mostly a web designer but i sometimes dabble in low-level programming. sometimes.</p>
+            <p style="position: relative; z-index: 4;">i have been graphics designing for about 2 years now. although it is only recently that i have made <a href="/assets/images/Document2.png">↗ something good</a>.
+            i don't have much to say here, if you'd like to know more; feel free to contact me! i do not bite.</p>
+            <p style="mask-image: linear-gradient(to top, transparent, white); position: relative; z-index: 4;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium inventore blanditiis animi voluptate id porro quibusdam minus sapiente fugit, ducimus molestiae itaque dolorem laudantium doloribus similique cumque dignissimos qui?</p>
+        </div>
+        <div class="airport-header type-2" style="position: relative; z-index: 4;">
+            <div style="display: flex;">
+            <img src="/assets/svg/headphones.svg" width="32">
+            <img class="invert-icon" src="/assets/svg/arrow2.svg" width="32">
+            </div>
+            <h2>albums i like!</h2>
+            <svg style="margin-left: auto; margin-right:1em; width: 2em;" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.94922 -7.01602e-07L14 9.05078L14 -3.0598e-07L21 0L21 21L-9.17939e-07 21L-6.11959e-07 14L9.05078 14L-2.16337e-07 4.94922L0 -9.17939e-07L4.94922 -7.01602e-07Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div class="albums">
+			{% for album in albums %}
+			<a href="{{album.url}}" class="album" target="_blank">
+				<img class="album-art" src="{{album.artwork}}" loading="lazy" 
+				data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}" 
+				title="{{album.title}} by {{album.artist}}">
+                <div data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}">
+                    <span data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}"><b data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}">{{album.title}}</b></span>
+                    <span data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}">by {{album.artist}}</span>
+                </div>
+                <img src="/assets/svg/arrow.svg" style="width: 16px; height: 16px; rotate: -90deg; margin-top: 6px; margin-right: 6px; opacity: 0.5;">
+			</a>
+			{% endfor %}
+            <p style="grid-column: span 2;">click on each one of them to listen to them on soundcloud!</p>
+		</div>
+        <div class="airport-header type-2" style="position: relative; z-index: 4;">
+            <img src="/assets/svg/arrow2.svg" width="32">
+            <h2>who are <i>you</i>?</h2>
+            <svg style="margin-left: auto; margin-right:1em; width: 2em;" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.94922 -7.01602e-07L14 9.05078L14 -3.0598e-07L21 0L21 21L-9.17939e-07 21L-6.11959e-07 14L9.05078 14L-2.16337e-07 4.94922L0 -9.17939e-07L4.94922 -7.01602e-07Z" fill="currentColor"/>
+            </svg>
+        </div>
+        <div>
+            <noscript><p>ohh ahahaha nice one friend! this gimmick doesn't work without javascript</p></noscript>
+            <script src="/assets/js/hi.js"></script>
+            <div id="sentences"></div>
+            <button id="who">who am i?</button>
+        </div>
+    </div>
+{% endblock %}

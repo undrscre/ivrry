@@ -11,41 +11,84 @@
     <title>ivrry</title>
 </head>
 <body>
+    <img class="upside-down-city" src="/assets/images/metro_38.png">
+    <div class="tooltip-container">
+		<div id="tooltip">
+			
+		</div>
+	</div>
     <main>
-        <nav>
-            <h1>ivrry</h1>
+        <header style="position: relative; z-index: 1239;">
+            <div style="display: flex;">
+                <img src="/assets/svg/heart.svg" style="background:#ceb6a6; height: 39px; width: 39px; border: black 1px solid; padding: 5px; margin-right:0.5em;">
+                <h1>ivrry.nekoweb.org</h1>
+            </div>
+            <div class="marquee-container header-marquee">
+                <div class="marquee-content">
+                    <span>it's all love / </span>
+                    <span>another redesign? seriously? / </span>
+                    <span>allegedly a designer / </span>
+                    <span>i'm out of quotes / </span>
+                    <span>i love my life. love yours too please? / </span>
+                    <span>it's all love / </span>
+                    <span>another redesign? seriously? / </span>
+                    <span>allegedly a designer / </span>
+                    <span>i'm out of quotes / </span>
+                    <span>i love my life. love yours too please? / </span>
+                </div>
+            </div>
+
+        </header>
+        <nav style="margin-left: 20px; position: relative; z-index: 1239;">
             <ul>
                 <span>navigation <img src="/assets/svg/arrow.svg"></span>
-                <li><span class="hidden">navigation</span><a>index</a></li>
-                <li><span class="hidden">navigation</span><a>about</a></li>
-                <li><span class="hidden">navigation</span><a>art</a></li>
-                <li><span class="hidden">navigation</span><a>?</a></li>
+                <li><a href="/"><span class="hidden">navigation</span>index</a></li>
+                <li><a href="about"><span class="hidden">navigation</span>about</a></li>
+                <li><a href="works"><span class="hidden">navigation</span>works</a></li>
+                <li><a href=""><span class="hidden">navigation</span>?</a></li>
             </ul>
             <ul>
                 <span>socials <img src="/assets/svg/arrow.svg"></span>
-                <li><span class="hidden">socials</span><a>discord</a></li>
-                <li><span class="hidden">socials</span><a>email</a></li>
-                <li><span class="hidden">socials</span><a>signal</a></li>
-                <li><span class="hidden">socials</span><a>git</a></li>
+                <li><a target="_blank" title="@wheathrea" href="https://discord.com/users/1121768865072947282"><span data-title="@wheathrea" class="hidden">socials</span>discord</a></li>
+                <li><a target="_blank" title="noelle@doggypa.ws" href="mailto:noelle@doggypa.ws"><span data-title="noelle@doggypa.ws" class="hidden">socials</span>email</a></li>
+                <li><a target="_blank" title="@unsigned.64" onclick="alert('@unsigned.64')"><span data-title="@unsigned.64" class="hidden">socials</span>signal</a></li>
+                <li><a target="_blank" title="@noelle (git.encodeco.de)" href="https://git.encodeco.de/noelle"><span data-title="@noelle (git.encodeco.de)" class="hidden">socials</span>git</a></li>
             </ul>
             <ul>
                 <span>other <img src="/assets/svg/arrow.svg"></span>
-                <li><span class="hidden">other</span><a>archive</a></li>
-                <li><span class="hidden">other</span><a>guestbook</a></li>
-                <li><span class="hidden">other</span><a>webrings</a></li>
-                <li><span class="hidden">other</span><a>friends</a></li>
+                <li><a href="/archive/july"><span class="hidden">other</span>archive</a></li>
+                <li><a href="/guestbook"><span class="hidden">other</span>guestbook</a></li>
+                <li><a href="/webrings"><span class="hidden">other</span>webrings</a></li>
+                <li><a href="/friends"><span class="hidden">other</span>friends</a></li>
             </ul>
             
         </nav>
         <hr>
-        <content>
+        <content style="position: relative;">
+            <div class="airport-header type-3" style="position: relative; z-index: 139;">
+                <div style="display: flex;">
+                <img src="/assets/svg/warning.svg" width="32" style="width:48px; height: 48px;">
+                <div class="warning" style="border-right: 1px solid black;"></div>
+                </div>
+                <h2>warning!</h2>
+                <div class="hide-mobile">
+                    <span>this site is <i><b>heavily</b></i> under construction. some links will break!</span>
+                </div>
+            </div>
+            <div class="show-mobile"><p style="margin: initial; margin-top: 1em;">this site is <i><b>heavily</b></i> under construction. some links will break!</p></div>
+            <div class="show-mobile"><p style="margin: initial; margin-top: 1em;">you're viewing a mobile version of the website, which lacks alot of cool design elements!! make sure you have a screen of atleast 1150px in width to enjoy</p></div>
+            <br>
             {% block content %}
             {% endblock %}
         </content>
     </main>
     <div class="flex-col hide-mobile" style="gap:1em">
-        <img src="/assets/svg/arrow.svg">
-        <span class="subtext" style="writing-mode: vertical-lr;">♡ 2026 noelle willows & co. with much love</span>
+        <img class="banner" src="/assets/svg/ticket.svg" title="2026 noelle willows & co. made with love">
+        <img title="my button!" src="/assets/svg/button.svg" class="shadow" style="border: 1px black solid;">
+        <img src="/assets/svg/arrow.svg" style="rotate: -90deg; color: #366690; filter: drop-shadow(-5px -5px 0px #00000021);">
     </div>
+
+    <img src="/assets/images/form-2.png" style="position: absolute; opacity:0.05; bottom: 0; rotate: 180deg; width: 70vw; z-index: -5; position: fixed; mask-image: radial-gradient(ellipse at top, white 50%, transparent 70%);">
 </body>
+<script src="/assets/js/global.js"></script>
 </html>

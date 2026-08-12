@@ -1,6 +1,6 @@
 /target
 tmp
-# dist
+dist
 .env
 site.zip
 /content/posts/private

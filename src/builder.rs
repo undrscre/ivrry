@@ -62,6 +62,7 @@ pub async fn build_all<'a>(env: &'a Environment<'a>) -> Result<HashMap<String, S
 pub fn consolidate(pages: HashMap<String, String>) -> Result<String, std::io::Error> {
     fs::create_dir_all(OUT_DIR)?;
     fs::create_dir_all(format!("{}/assets", OUT_DIR))?;
+    fs::create_dir_all(format!("{}/archive", OUT_DIR))?;
     fs::create_dir_all(format!("{}/blog", OUT_DIR))?;
 
     for page in pages {
@@ -71,6 +72,8 @@ pub fn consolidate(pages: HashMap<String, String>) -> Result<String, std::io::Er
     let mut options = fs_extra::dir::CopyOptions::new();
     options.overwrite = true;
     fs_extra::dir::copy("assets", OUT_DIR, &options)
+        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
+    fs_extra::dir::copy("archive", OUT_DIR, &options)
         .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e))?;
     Ok(OUT_DIR.to_string())
 }

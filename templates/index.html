@@ -1,7 +1,91 @@
 {% extends "_base.html" %}
 {% block content %}
-    <div class="flex-col">
-        <img class="art" src="/assets/img/Document2.png">
-        <span class="subtext">Hypertext ⸺ 2026-07</span>
+    <div class="flex expand-height-mobile" style="position: relative; z-index: 9; height: 450px;">
+        <div>
+            <div class="airport-header type-2">
+                <img class="invert-icon" src="/assets/svg/arrow2.svg" width="32">
+                <h2>latest artwork</h2>
+            </div>
+            <figure style="margin:0;">
+                <img class="art" src="/assets/images/art/Document2.png" style="box-shadow: -5px 5px 0px #00000020; border: 1px solid black; border-top: none; height: 100%;">
+                <figcaption class="subtext">Hypertext ⸺ 2026-07</figcaption>
+            </figure>
+        </div>
+        <div class="flex-col hide-mobile" style="height:100%;">
+            <img src="/assets/images/art/Document.png"   class="expand-width-mobile shadow" style="border: 1px solid black; width: 200px; height: 200px; object-fit: cover;">
+            <img src="/assets/images/art/image copy.png" class="expand-width-mobile shadow" style="border: 1px solid black; width: 200px; flex-grow: 1; object-fit: cover;">
+        </div>
     </div>
+
+    <img src="/assets/images/form-1.png" class="hide-mobile" style="position: absolute; width:100%; opacity: 0.15; scale: 3; z-index: 0; left:120px; top:20%; mask-image: radial-gradient(white 30%, transparent 35%); pointer-events: none;">
+    <br>
+    <div class="flex" style="width:100%; position: relative; z-index: 9; height: 260px; align-items: stretch;">
+        <div style="height: 100%;" class="shadow">
+            <div class="airport-header type-2">
+                <img class="invert-icon" src="/assets/svg/arrow2.svg" width="32">
+                <h2 style="margin-right: 1em;">stats</h2>
+            </div>
+            <div class="flex-col row-mobile" style="background: white; padding:1em; border: 1px solid black; border-top: none; gap:0; justify-content: space-evenly">
+                <div>
+                <span>visits;</span>
+                <h1 id="visitors" style="margin:0;">
+                    <span class="subtext">0</span><span class="subtext">0</span><span class="subtext">0</span><span>2</span><span>0</span>
+                </h1>
+                </div>
+                <div>
+                <span>followers;</span>
+                <h1 id="followers" style="margin:0;">
+                    <span class="subtext">0</span><span class="subtext">0</span><span class="subtext">0</span><span>6</span><span>7</span>
+                </h1>
+                </div>
+                <div>
+                <span>updated;</span>
+                <h1 id="date" style="margin:0;">
+                    Jul 26th
+                </h1>
+                </div>
+            </div>
+        </div>
+        <div style="flex-grow: 1;" class="shadow">
+            <div class="airport-header type-1">
+                <img src="/assets/svg/arrow2.svg" width="32">
+                <h2 id="lastfm-status">fetching..</h2>
+            </div>
+            <div class="flex lastfm row-mobile" style="gap: 1em; align-items:center; background: white; padding:1em; border: 1px solid black; border-top: none; position: relative; overflow: clip;">
+                <noscript>
+					<p>you need javascript enabled to see what i'm listening to!</p>
+					<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>
+					<p>but if u don't wanna, that's ok :)
+				</noscript>
+                <img class="listening-art shadow" style="width: auto; border: 1px solid #aaaaaa80; height: 176px; width: 176px;">
+            </div>
+            <template id="lastfm-template">
+                <img class="listening-art shadow" alt="album art" style="width: auto; border: 1px solid #aaaaaa80; height: 176px; width: 176px; position: relative; z-index: 1231;">
+                <div style="position: relative; z-index:5;">
+                    <!-- todo: refactor because holy hell -->
+                    <h1 class="listening-title" style="width: 16ch; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;"></h1>
+                    <br>
+                    <p style="width: 30ch; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        on <b class="splash album-name"></b>
+                        <br>by <b class="splash artist-name" style="margin-left: 1px;"></b>
+                    </p>
+                    <br>
+                    <!-- <a href=""></a> -  -->
+                    <!-- <img class="listening-bg speen" alt="album art" style="display:none; width: 100%; position: absolute; filter: brightness(200%) blur(20px) brightness(200%); top:50%; transform:translateY(-50%); opacity: 0.3; z-index: -2; pointer-events: none;"> -->
+                    <img src="/assets/images/form-3.png" style="position: absolute; opacity: 0.1; width:160%; top:-150px; rotate:-90deg; right:-200px; z-index: -1; pointer-events: none;">
+                    <span class="lastfm-link"></span>
+                </div>
+            </template>
+        </div>
+    </div>
+    <br>
+    <iframe
+        src="https://ad.ari.lt/ads/embed?from=ivrry.nekoweb.org"
+        sandbox="allow-popups allow-popups-to-escape-sandbox"
+        referrerpolicy="no-referrer"
+        style="position:relative;border:none;max-width:100%; z-index: 5; width: 100%; aspect-ratio: 7.367346939;"
+        loading="lazy"
+        role="img"
+    > </iframe>
+    <script src="/assets/js/index.js"></script>
 {% endblock %}

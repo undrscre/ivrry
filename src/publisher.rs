@@ -43,6 +43,10 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
             .unwrap()
             .to_owned();
     }
+
+    let meta = fs::metadata("site.zip").unwrap();
+    info!("uploading {} to nekoweb", format_size(meta.len()));
+
     let form = Form::new()
             .part("id", Part::text(id.clone()))
             .part("file", Part::bytes(zip).file_name("site.zip"));
@@ -141,4 +145,17 @@ fn zip_dir(site_root: &str, src_dir: &str, dst_file: &str) -> zip::result::ZipRe
 
     zip.finish()?;
     Ok(())
+}
+
+fn format_size(bytes: u64) -> String {
+    let units = ["B", "KB", "MB", "GB", "TB"];
+    if bytes == 0 {
+        return "0 B".to_string();
+    }
+    
+    let i = ((bytes as f64).ln() / (1024.0f64).ln()).floor() as usize;
+    let i = i.min(units.len() - 1);
+    
+    let size = bytes as f64 / 1024.0f64.powi(i as i32);
+    format!("{:.2} {}", size, units[i])
 }
