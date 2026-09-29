@@ -53,7 +53,7 @@
         </div>
         <div class="albums">
 			{% for album in albums %}
-			<a href="{{album.url}}" class="album" target="_blank">
+			<a href="{{album.url}}" class="album bg-inherit" target="_blank">
 				<img class="album-art" src="{{album.artwork}}" loading="lazy" 
 				data-title="↗ <b>{{album.title}}</b> <br> by {{album.artist}}" 
 				title="{{album.title}} by {{album.artist}}">

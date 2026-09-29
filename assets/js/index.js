@@ -15,7 +15,7 @@ async function updateLastFM() {
 		let response = request.recenttracks;
 		let data = response.track[0]; // fuckup with my implementation
 		
-		legend.textContent = data["@attr"] ? "currently listening to:" : "last listened to:";
+		legend.textContent = data["@attr"] ? "currently listening to" : "last listened to";
 		
 		const albumArt = data.image?.[2]?.["#text"] || 
 			"https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png";

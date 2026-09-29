@@ -1,5 +1,5 @@
 use dotenv::dotenv;
-use reqwest::multipart::{Form, Part};
+use reqwest::{Body, multipart::{Form, Part}};
 use std::{
     env,
     collections::HashMap,
@@ -51,7 +51,7 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
             .part("id", Part::text(id.clone()))
             .part("file", Part::bytes(zip).file_name("site.zip"));
 
-    let file = client
+    let file = client   
         .post(format!("{}/files/big/append", api_endpoint))
         .header("Authorization", &api_key)
         .multipart(form)
@@ -67,11 +67,12 @@ pub async fn publish(dist_dir: &str) -> Result<(), reqwest::Error> {
     let upload = client
         .post(format!("{}/files/import/{}", api_endpoint, id))
         .header("Authorization", &api_key)
+        .body(Body::from(format!("path=/")))
         .send()
         .await?;
 
     if !upload.status().is_success() {
-        error!("Failed to upload")
+        error!("Failed to upload: {:#?}", upload.text().await)
     } else {
         info!("Upload success")
     }

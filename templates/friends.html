@@ -1,4 +1,29 @@
 {% extends "_base.html" %}
 {% block content %}
-    
+    <div class="airport-header type-1" style="overflow-x: clip;">
+        <img src="/assets/svg/arrow.svg" width="32" style="padding:10px;">
+        <h1 style="white-space: nowrap;">friends!</h1>
+    </div>
+    <br>
+    <div class="button-container">
+        {% for btn in buttons.friends %}
+        <a href="{{ btn.url }}" target="_blank" rel="noopener"class="button-card">
+            {% if btn.screenshot %}
+                <div class="button-preview">
+                    <img src="{{ btn.screenshot }}" loading="lazy">
+                </div>
+            {% endif %}
+            <div class="info">
+                <p>
+                <span class="button-name">{{ btn.name }}</span><br>
+                <span class="button-url">{{ btn.url }}</span>
+                </p>
+                <div class="flex" style="gap:5px;">
+                <img src="/assets/svg/arrow.svg" style="width: 16px; height: 16px; rotate: -90deg; opacity: 0.5;">
+                <img class="button-art" src="{{ btn.art }}" alt="{{ btn.name }}" width="88" height="31">
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
 {% endblock %}

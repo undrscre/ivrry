@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/mobile.css">
+    <link rel="stylesheet" href="/assets/css/button.css">
 
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -11,16 +13,21 @@
     <title>ivrry</title>
 </head>
 <body>
+    <div class="cool-container hide-mobile">
+    <img class="awesome" src="/assets/svg/fun.svg">
+    </div>
     <img class="upside-down-city" src="/assets/images/metro_38.png">
     <div class="tooltip-container">
 		<div id="tooltip">
 			
 		</div>
 	</div>
-    <main>
+    <h1 style="position: absolute; top:-14px; font-size: 89px; font-family: 'blokshox'; z-index: 1234; opacity: 0.3; mask-image: linear-gradient(to bottom, transparent, white); pointer-events: none;">ivrry.nekoweb.org</h1>
+    <h1 style="position: absolute; top:52px; transform: scaleY(-1); font-size: 89px; font-family: 'blokshox'; z-index: 1234; opacity: 0.1; mask-image: linear-gradient(to bottom, transparent, white); pointer-events: none;">ivrry.nekoweb.org</h1>
+    <main style="position: relative;">
         <header style="position: relative; z-index: 1239;">
             <div style="display: flex;">
-                <img src="/assets/svg/heart.svg" style="background:#ceb6a6; height: 39px; width: 39px; border: black 1px solid; padding: 5px; margin-right:0.5em;">
+                <img src="/assets/svg/heart.svg" style="background:var(--col1); height: 39px; width: 39px; border: black 1px solid; padding: 5px; margin-right:0.5em;">
                 <h1>ivrry.nekoweb.org</h1>
             </div>
             <div class="marquee-container header-marquee">
@@ -61,7 +68,9 @@
                 <li><a href="/webrings"><span class="hidden">other</span>webrings</a></li>
                 <li><a href="/friends"><span class="hidden">other</span>friends</a></li>
             </ul>
-            
+            <div class="hide-mobile underscores" id="underscores">
+
+            </div>
         </nav>
         <hr>
         <content style="position: relative;">
@@ -81,14 +90,15 @@
             {% block content %}
             {% endblock %}
         </content>
+        <div class="underscores-footer" id="underscores-footer"></div>
     </main>
-    <div class="flex-col hide-mobile" style="gap:1em">
+    <!-- <div class="flex-col hide-mobile" style="gap:1em">
         <img class="banner" src="/assets/svg/ticket.svg" title="2026 noelle willows & co. made with love">
         <img title="my button!" src="/assets/svg/button.svg" class="shadow" style="border: 1px black solid;">
         <img src="/assets/svg/arrow.svg" style="rotate: -90deg; color: #366690; filter: drop-shadow(-5px -5px 0px #00000021);">
-    </div>
+    </div> -->
 
-    <img src="/assets/images/form-2.png" style="position: absolute; opacity:0.05; bottom: 0; rotate: 180deg; width: 70vw; z-index: -5; position: fixed; mask-image: radial-gradient(ellipse at top, white 50%, transparent 70%);">
+    <!-- <img src="/assets/images/form-2.png" style="position: absolute; opacity:0.05; bottom: 0; rotate: 180deg; width: 70vw; z-index: -5; position: fixed; mask-image: radial-gradient(ellipse at top, white 50%, transparent 70%);"> -->
 </body>
 <script src="/assets/js/global.js"></script>
 </html>

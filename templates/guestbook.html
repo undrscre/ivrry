@@ -1,4 +1,14 @@
 {% extends "_base.html" %}
 {% block content %}
-    
+    <img src="/assets/images/form-1.png" class="hide-mobile" style="width:100%; position: absolute; opacity: 0.15; rotate:180deg; scale: 3; top:200px; z-index: 0; right:120px; mask-image: radial-gradient(white 20%, transparent 33%); pointer-events: none;">
+    <div class="airport-header type-1" style="overflow-x: clip;">
+        <img src="/assets/svg/arrow.svg" width="32" style="padding:10px;">
+        <h1 style="white-space: nowrap;">guestbook!</h1>
+    </div>
+    <br>
+    <div class="guestbook">
+        <noscript>requires javascript</noscript>
+        <div id="c_widget"></div>
+        <script src="/assets/js/guestbook.js"></script>
+    </div>
 {% endblock %}

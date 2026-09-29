@@ -1,57 +1,51 @@
 {% extends "_base.html" %}
 {% block content %}
-    <div class="flex expand-height-mobile" style="position: relative; z-index: 9; height: 450px;">
-        <div>
-            <div class="airport-header type-2">
-                <img class="invert-icon" src="/assets/svg/arrow2.svg" width="32">
-                <h2>latest artwork</h2>
+    <!-- <img src="/assets/images/form-1.png" class="hide-mobile" style="position: absolute; width:100%; opacity: 0.15; scale: 3; z-index: 0; left:120px; top:20%; mask-image: radial-gradient(white 30%, transparent 35%); pointer-events: none;"> -->
+
+    <div class="flex expand-height-mobile" style="position: relative; z-index: 9; width:100%;">
+        <div style="width:100%;">
+            <div class="airport-header type-1" style="overflow-x: clip;">
+                <img src="/assets/svg/arrow.svg" width="32" style="padding:10px;">
+                <h1 style="white-space: nowrap;">latest artwork</h1>
             </div>
-            <figure style="margin:0;">
-                <img class="art" src="/assets/images/art/Document2.png" style="box-shadow: -5px 5px 0px #00000020; border: 1px solid black; border-top: none; height: 100%;">
-                <figcaption class="subtext">Hypertext ⸺ 2026-07</figcaption>
-            </figure>
-        </div>
-        <div class="flex-col hide-mobile" style="height:100%;">
-            <img src="/assets/images/art/Document.png"   class="expand-width-mobile shadow" style="border: 1px solid black; width: 200px; height: 200px; object-fit: cover;">
-            <img src="/assets/images/art/image copy.png" class="expand-width-mobile shadow" style="border: 1px solid black; width: 200px; flex-grow: 1; object-fit: cover;">
+            <div class="fig" style="margin:0; width: 100%;">
+                <img class="art shadow" src="/assets/images/art/impact.png" style="border: 1px solid black; border-top: 0; object-fit: cover; height: 300px; width: 100%;">
+                <!-- <span class="figcap">Hypertext ⸺ 2026-07</span> -->
+            </div>
         </div>
     </div>
-
-    <img src="/assets/images/form-1.png" class="hide-mobile" style="position: absolute; width:100%; opacity: 0.15; scale: 3; z-index: 0; left:120px; top:20%; mask-image: radial-gradient(white 30%, transparent 35%); pointer-events: none;">
     <br>
     <div class="flex" style="width:100%; position: relative; z-index: 9; height: 260px; align-items: stretch;">
-        <div style="height: 100%;" class="shadow">
-            <div class="airport-header type-2">
-                <img class="invert-icon" src="/assets/svg/arrow2.svg" width="32">
+        <div style="height: 100%;" class="">
+            <div class="test3">
                 <h2 style="margin-right: 1em;">stats</h2>
             </div>
-            <div class="flex-col row-mobile" style="background: white; padding:1em; border: 1px solid black; border-top: none; gap:0; justify-content: space-evenly">
+            <div class="flex-col row-mobile shadow bg-inherit stats" style="padding:1em; border: 1px solid black; gap:0; justify-content: space-evenly">
                 <div>
                 <span>visits;</span>
-                <h1 id="visitors" style="margin:0;">
+                <h1 id="visitors" style="margin:0; color: var(--col1);">
                     <span class="subtext">0</span><span class="subtext">0</span><span class="subtext">0</span><span>2</span><span>0</span>
                 </h1>
                 </div>
                 <div>
                 <span>followers;</span>
-                <h1 id="followers" style="margin:0;">
+                <h1 id="followers" style="margin:0; color: var(--col2);">
                     <span class="subtext">0</span><span class="subtext">0</span><span class="subtext">0</span><span>6</span><span>7</span>
                 </h1>
                 </div>
                 <div>
                 <span>updated;</span>
-                <h1 id="date" style="margin:0;">
+                <h1 id="date" style="margin:0; color: var(--col3);">
                     Jul 26th
                 </h1>
                 </div>
             </div>
         </div>
-        <div style="flex-grow: 1;" class="shadow">
-            <div class="airport-header type-1">
-                <img src="/assets/svg/arrow2.svg" width="32">
-                <h2 id="lastfm-status">fetching..</h2>
+        <div style="flex-grow: 1;" class="">
+            <div class="test2">
+                <h2><span id="lastfm-status">fetching</span> <img src="/assets/svg/headphones.svg" style="width: 0.8em;"></h2>
             </div>
-            <div class="flex lastfm row-mobile" style="gap: 1em; align-items:center; background: white; padding:1em; border: 1px solid black; border-top: none; position: relative; overflow: clip;">
+            <div class="flex lastfm row-mobile shadow bg-inherit" style="gap: 1em; align-items:center; padding:1em; border: 1px solid black; position: relative; overflow: clip;">
                 <noscript>
 					<p>you need javascript enabled to see what i'm listening to!</p>
 					<p>you can also check out my <a href="https://www.last.fm/user/undrscr_">last.fm</a> profile</p>
@@ -85,6 +79,7 @@
         referrerpolicy="no-referrer"
         style="position:relative;border:none;max-width:100%; z-index: 5; width: 100%; aspect-ratio: 7.367346939;"
         loading="lazy"
+        class="shadow hide-mobile"
         role="img"
     > </iframe>
     <script src="/assets/js/index.js"></script>
