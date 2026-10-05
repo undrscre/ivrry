@@ -1,0 +1,138 @@
+{% extends "_base.html" %}
+{% block head %}
+<link rel="stylesheet" href="/assets/css/index.css">
+{% endblock %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div class="flex">
+    <div class="latest-post">
+        <img src="/assets/images/form485.png" class="post-form">
+        <!-- <template id="post-template">
+            <div class="post flex">
+                <img class="post-avatar" id="post-avatar" src="https://booping.synth.download/proxy/avatar.webp?url=https%3A%2F%2Fcdn.booping.synth.download%2Ffiles%2F7b942c6b-82ce-4891-b651-2206d62257c5.webp&avatar=1">
+                <div class="post-details">
+                    <span><b id="post-title">noelle willows</b> <span class="subtext" id="post-handle">@willows@booping.synth.download</span></span>
+                    <p id="post-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem ipsam deserunt dolorem, voluptates quibusdam tempora minus temporibus cumque dolorum reiciendis, rem enim magni, error molestias? Neque placeat nostrum natus? Qui.</p>
+                    <a id="post-link" href="" target="_blank" style="color:#f45088">read more ↗</a>
+                </div>
+            </div>
+        </template> -->
+        <div class="posts">
+            <div class="post flex">
+                <img class="post-avatar" src="/assets/images/pfp.webp">
+                <div class="post-details">
+                    <span><b id="post-name">noelle willows</b> <span class="subtext" id="post-handle">@willows@booping.synth.download</span></span>
+                    <p id="post-reply" style="display:none; opacity:0.5;"><span style="display:inline-block; transform:scaleY(-1);">↪</span> replying to <span id="post-reply-name">no one</span></p>
+                    <p id="post-content">loading post.. if you see nothing; enable javascript!</p>
+                    <div id="post-files" style="opacity: 0.5;">
+                    </div>
+                    <a id="post-link" href="" target="_blank" style="color:#f45088; opacity: 0.5;">loading ..</a>
+                </div>
+            </div>
+        </div>
+        <div class="post-squares">
+            <div class="s01 post-square st3"></div>
+            <div class="s02 post-square st2"></div>
+            <div class="s03 post-square st1"></div>
+            <div class="s04 post-square st3"></div>
+            <div class="s05 post-square st1"></div>
+        </div>
+    </div>
+
+    <div class="statistics">
+        <div class="statistics-header">
+            <h1>Statistics</h1>
+        </div>
+        <div class="statistics-sep"><div class="s-s1"></div><span>Site visitors</span></div>
+        <div class="statistics-visitors dotdisplay-1">
+            <h1><span class="subtext">00000000000</span>67</h1>
+        </div>
+        <div class="statistics-sep"><div class="s-s2"></div><span>Followers</span></div>
+        <div class="statistics-followers dotdisplay-1">
+            <h1><span class="subtext">00000000000</span>67</h1>
+        </div>
+        <div class="statistics-sep"><div class="s-s3"></div><span>Last updated</span></div>
+        <div class="statistics-update dotdisplay-1">
+            <h1>November 11th</h1>
+        </div>
+    </div>
+</div>
+<div class="art-gallery">
+    <img src="/assets/images/art/Document.png">
+    <img src="/assets/images/art/Document2.png">
+    <img src="/assets/images/art/idk-horizontal@2x.png">
+    <img src="/assets/images/art/Serif.Interop.Persona.png">
+</div>
+<div class="flex">
+    <div class="idk">
+        <pre style="color:white; font-size: 1.4em; width:30ch;">
+<span style="color:#626262;">    ____________________  </span>
+<span style="color:#626262;">   |                    | </span> 
+<span style="color:#626262;">   | <span style="color:#f45088">i'm trapped here!!</span> |
+<span style="color:#626262;">   |___  _______________| </span>     
+<span style="color:#626262;">       |/   </span>
+<span style="color:#f45088">    /\   /\     _   </span>
+<span style="color:#f45088">   < <span style="color:white">>   <</span> >__ ) )  </span>
+<span style="color:#f45088">   ^-.__   ^  ` /   </span>
+<span style="color:#f45088">    \_.-._/--._/    </span>       
+        </pre>
+    </div>
+    <div class="lastfm">
+        <div class="casette">
+            <div class="casette-shine"></div>
+            <div class="casette-cover"></div>
+            <img id="casette-img" src="/assets/images/casette-roll.gif">
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column;">
+            <div style="flex-grow: 1;">
+                <div class="lastfm-screen flex">
+                    <div class="casette-shine lastfm-shine"></div>
+                    <img id="album-art" src="/assets/images/testcover.png">
+                    <div class="lastfm-details">
+                        <h1 id="lastfm-title" style="white-space: nowrap; overflow: hidden; max-width: 24ch; text-overflow: ellipsis;">test album</h1>
+                        <h3>
+                            <span id="lastfm-artist">by noelle willows</span><br>
+                            <span id="lastfm-album">on noscript, enable js</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="flex lastfm-deco">
+                <div class="lastfm-buttons">
+                    <div class="lastfm-button"></div>
+                    <div class="lastfm-button"></div>
+                    <div class="lastfm-button"></div>
+                    <div class="lastfm-button"></div>
+                    <div class="lastfm-button"></div>
+                    <div class="lastfm-button"></div>
+                </div>
+                <div class="lastfm-button lastfm-filler"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="friends">
+    <div class="friends-webrings dotdisplay-2">
+        <h2 style="width: 100%; display: flex; justify-content: space-between;">
+            <a href="https://webring.bucketfish.me/redirect.html?to=prev&name=ivy's home">< prev</a>
+            <a href="https://webring.bucketfish.me/">bucket webring</a>
+            <a href="https://webring.bucketfish.me/redirect.html?to=next&name=ivy's home">next ></a>
+        </h2>
+    </div>
+    <div class="friends-buttons dotdisplay-2 marquee-container">
+        <div class="marquee-content buttons">
+            {% for btn in buttons.friends %}
+                <a href="{{ btn.url }}" target="_blank" rel="noopener"class="button">
+                    <img class="button-art" src="{{ btn.art }}" alt="{{ btn.name }}" width="88" height="31">
+                </a>
+            {% endfor %}
+            {% for btn in buttons.friends %}
+                <a href="{{ btn.url }}" target="_blank" rel="noopener"class="button">
+                    <img class="button-art" src="{{ btn.art }}" alt="{{ btn.name }}" width="88" height="31">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script src="/assets/js/index.js"></script>
+{% endblock %}

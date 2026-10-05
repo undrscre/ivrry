@@ -85,11 +85,16 @@ pub async fn context() -> Value {
 
 fn shoot(browser: &Browser, url: &str, out: &str) -> anyhow::Result<()> {
     let tab = browser.new_tab()?;
+    
+    tab.set_user_agent(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
+        Some("en-US,en;q=0.9"),
+        Some("Win32"),
+    )?;
+
     tab.navigate_to(url)?;
     tab.wait_until_navigated()?;
 
-    // kill scrollbars before capture — otherwise you get chrome's native
-    // scrollbar rendered right into the png, ugly as sin on a preview thumb
     tab.evaluate(
         "var s=document.createElement('style');
          s.innerHTML='::-webkit-scrollbar{display:none}body{scrollbar-width:none}';

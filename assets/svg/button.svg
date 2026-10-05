@@ -1,0 +1,77 @@
+<svg width="88" height="31" viewBox="0 0 88 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@keyframes kf_Group_1_transform_0 {
+  0% {
+    transform: translateY(35px) translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateY(35px) translateX(24px) translateY(0px);
+  }
+}
+#Group_1 {
+  transform-origin: 0 0;
+  animation: kf_Group_1_transform_0 2s linear infinite;
+}
+@keyframes kf_Group_2_transform_0 {
+  0% {
+    transform: translateX(1px) translateY(1px) translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateX(1px) translateY(1px) translateX(0px) translateY(30px);
+  }
+}
+#Group_2 {
+  transform-origin: 0 0;
+  animation: kf_Group_2_transform_0 2s linear infinite;
+}
+</style>
+<g id="Frame_4_3__3" clip-path="url(#clip0_50_326)">
+<g id="Clip_path_group">
+<mask id="mask0_50_326" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="88" height="31">
+<g id="clip0_50_164">
+<path id="Vector" d="M88 0H0V31H88V0Z" fill="white"/>
+</g>
+</mask>
+<g mask="url(#mask0_50_326)">
+<g id="Frame_4" transform="translate(-33 -31)">
+<path id="Frame_4_bg_0" transform="translate(33 31)" d="M88 0H0V31H88V0Z" fill="#366690"/>
+<g id="Group_1" transform="translate(0 35)">
+<path id="Vector_2__Stroke_" opacity="0.3" transform="matrix(0 1 -1 0 70 1.34637e-05)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<path id="Vector_2__Stroke__2" opacity="0.3" transform="matrix(0 1 -1 0 46 1.34637e-05)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<path id="Vector_2__Stroke__3" opacity="0.3" transform="matrix(0 1 -1 0 94 0)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<path id="Vector_2__Stroke__4" opacity="0.3" transform="matrix(0 1 -1 0 118 0)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<path id="Vector_2__Stroke__5" opacity="0.3" transform="matrix(0 1 -1 0 142 0)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<path id="Vector_2__Stroke__6" opacity="0.3" transform="matrix(0 1 -1 0 22 2.8839e-06)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+</g>
+<g id="Vector_2__Stroke__7" transform="matrix(0 1 -1 0 117 35)">
+<path id="Vector_2__Stroke__7_bg_0" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="white"/>
+<g id="Mask_group" transform="translate(-1 -1)">
+<mask id="mask1_50_326" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="88" height="31">
+<g id="Frame">
+<path id="Vector_2" d="M24 0H0V24H24V0Z" fill="white"/>
+<path id="Vector_3" transform="translate(1 1)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" fill="black"/>
+</g>
+</mask>
+<g mask="url(#mask1_50_326)">
+<path id="Vector_4" transform="translate(1 1)" d="M9.6165e-07 16.8151L9.48177 7.33333H9.6165e-07L0 9.6165e-07L22 0V22H14.6667V12.5182L5.1849 22H9.6165e-07V16.8151Z" stroke="#366690" stroke-width="2"/>
+</g>
+</g>
+</g>
+<g id="Frame_5" transform="translate(32)">
+<g id="Group_2" transform="translate(1 1)">
+<g id="Rectangle_32" transform="translate(0 30)">
+</g>
+<g id="Rectangle_33">
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_50_326">
+<rect width="88" height="31" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ivrry</title>
+
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="the-real-body">
+        <header>
+            <div class="flex">
+                <div class="header-1">
+                    <div class="airplane-header flex">
+                        <div class="airplane-header-icon">
+                            <img src="/assets/svg/airplane-header.svg">
+                        </div>
+                        <h1 class="airplane-header-title">ivrry.nekoweb.org</h1>
+                    </div>
+                    <div class="header-pagetitle">
+                        <img class="pt-ca-1" src="/assets/svg/cool-arrow-2.svg">
+                        <h1>{% block title %}{% endblock %}</h1>
+
+                        <img src="/assets/svg/arrow.svg" class="pt-a-1">
+                        <img src="/assets/svg/arrow.svg" class="pt-a-2">
+                        <img src="/assets/svg/arrow.svg" class="pt-a-3">
+                    </div>
+                </div>
+                <div class="header-2">
+                    <img src="/assets/svg/Group 17.svg">
+                    <img src="/assets/svg/fun.svg" class="header-2-rings">
+                </div>
+            </div>
+            <div class="rgb-sep">
+                <div style="background-color: red;"></div>
+                <div style="background-color: #00ff00;"></div> <!-- the odd one -->
+                <div style="background-color: blue;"></div>
+                <div style="background-color: cyan;"></div>
+                <div style="background-color: magenta;"></div>
+                <div style="background-color: yellow;"></div>
+            </div>
+            <div class="dotdisplay-1 header-marquee marquee-container">
+                <h1 class="marquee-content">
+                    <span>Really Noelle? Again? / </span>
+                    <span>it's all love / </span>
+                    <span>allegedly a designer / </span>
+                    <span>i'm out of quotes / </span>
+                    <span>i love my life. love yours too please? / </span>
+                    <span>Really Noelle? Again? / </span>
+                    <span>it's all love / </span>
+                    <span>allegedly a designer / </span>
+                    <span>i'm out of quotes / </span>
+                    <span>i love my life. love yours too please? / </span>
+                </h1>
+            </div>
+        </header>
+        <div class="navigation flex">
+            <nav style="flex-grow: 1;">
+                <div class="nav-header flex">
+                    <div class="cool-nav-square"></div>
+                    <h1 class="nav-title">Navigation →</h1>
+                </div>
+                <div class="actual-nav flex">
+                    <div class="nav-sep-1"></div>
+                    <div class="nav-sep-2"></div>
+                    <ul>
+                        <span>navigation <img src="/assets/svg/arrow.svg"></span>
+                        <li><a href="/"><span class="hidden">navigation</span>index</a></li>
+                        <li><a href="about"><span class="hidden">navigation</span>about</a></li>
+                        <li><a href="works"><span class="hidden">navigation</span>works</a></li>
+                        <li><a href=""><span class="hidden">navigation</span>?</a></li>
+                    </ul>
+                    <ul>
+                        <span>socials <img src="/assets/svg/arrow.svg"></span>
+                        <li><a target="_blank" title="@w.llows" href="https://discord.com/users/1121768865072947282"><span data-title="@w.llows" class="hidden">socials</span>discord</a></li>
+                        <li><a target="_blank" title="noelle@doggypa.ws" href="mailto:noelle@doggypa.ws"><span data-title="noelle@doggypa.ws" class="hidden">socials</span>email</a></li>
+                        <li><a target="_blank" title="@unsigned.64" onclick="alert('@unsigned.64')"><span data-title="@unsigned.64" class="hidden">socials</span>signal</a></li>
+                        <li><a target="_blank" title="@noelle (git.encodeco.de)" href="https://git.encodeco.de/noelle"><span data-title="@noelle (git.encodeco.de)" class="hidden">socials</span>git</a></li>
+                    </ul>
+                    <ul>
+                        <span>other <img src="/assets/svg/arrow.svg"></span>
+                        <li><a><span class="hidden">other</span>..nothing here</a></li>
+                        <!-- <li><a href="/archive/july"><span class="hidden">other</span>archive</a></li>
+                        <li><a href="/guestbook"><span class="hidden">other</span>guestbook</a></li>
+                        <li><a href="/webrings"><span class="hidden">other</span>webrings</a></li>
+                        <li><a href="/friends"><span class="hidden">other</span>friends</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+            <div class="nav-vector">
+                <img src="/assets/images/form497.png" class="nav-vector-form">
+                <img src="/assets/svg/cool-arrow-3.svg" class="nav-vector-arrow">
+                <img src="/assets/svg/cool-arrow-3.svg" class="nav-vector-arrow-2">
+            </div>
+        </div>
+        <div class="link-warning">
+            <div class="link-warning-icon">
+                <img src="/assets/svg/warning.svg">
+            </div>
+            <h2>Warning!</h2>
+            <h3>This site is heavily under construction. some links will break!</h3>
+        </div>
+        <content>
+            {% block content %}
+            {% endblock %}
+        </content>
+        <img src="/assets/svg/ivrry-sep.svg" width="100%">
+    </div>
+    <div class="footer">
+        <p>
+            + <i style="font-weight: 300;">made with love by</i> <b>noelle willows & co.</b><br>
+            + <i style="font-weight: 300;">will god ever forgive me for</i> <b>what i'm about to do?</b>
+        </p>
+        <p>
+            <i style="font-weight: 300;">version</i><b style="display: inline-block; margin-left: 3em;">..?</b><br>
+            <b>13th</b> <i style="font-weight: 300;">iteration ++</i>
+        </p>
+    </div>
+</body>
+</html>

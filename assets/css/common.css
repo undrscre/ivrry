@@ -1,0 +1,33 @@
+.dotdisplay-1 {
+    border:5px solid black;
+    background: radial-gradient(#170d03, #070605);
+    font-family: "Doto";
+    text-shadow: #fc970061 0px 0px 15px;
+    color:#FC9700;
+    padding:5px 8px;
+    & h1 { margin: 0; font-weight: 800 !important; }
+}
+
+.dotdisplay-2 {
+    border:5px solid #121212;
+    background: radial-gradient(#62A15E, #497845);
+    font-family: "Doto";
+    text-shadow: #000D 0px 0px 15px;
+    box-shadow: #000D 0px 2px 8px;
+    color:#131313;
+    padding:5px 8px;
+    & * { margin: 0; font-weight: 900 !important; mix-blend-mode: overlay; }
+}
+
+.default-header {
+    background: #3A3A3A;
+}
+
+.default-header-2 {
+    background: #292929;
+}
+
+.subtext {
+    opacity:0.5;
+}
+
