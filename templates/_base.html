@@ -15,6 +15,11 @@
     {% block head %}{% endblock %}
 </head>
 <body>
+    <div class="tooltip-container">
+		<div id="tooltip">
+			
+		</div>
+	</div>
     <div class="the-real-body">
         <header>
             <div class="flex">
@@ -74,9 +79,9 @@
                     <ul>
                         <span>navigation <img src="/assets/svg/arrow.svg"></span>
                         <li><a href="/"><span class="hidden">navigation</span>index</a></li>
-                        <li><a href="about"><span class="hidden">navigation</span>about</a></li>
-                        <li><a href="works"><span class="hidden">navigation</span>works</a></li>
-                        <li><a href=""><span class="hidden">navigation</span>?</a></li>
+                        <li><a href="/about"><span class="hidden">navigation</span>about</a></li>
+                        <li><a href="/works"><span class="hidden">navigation</span>works</a></li>
+                        <li><a href="/sitemap"><span class="hidden">navigation</span>sitemap</a></li>
                     </ul>
                     <ul>
                         <span>socials <img src="/assets/svg/arrow.svg"></span>
@@ -115,14 +120,19 @@
         <img src="/assets/svg/ivrry-sep.svg" width="100%">
     </div>
     <div class="footer">
-        <p>
+        <p style="opacity: 0.5;">
             + <i style="font-weight: 300;">made with love by</i> <b>noelle willows & co.</b><br>
-            + <i style="font-weight: 300;">will god ever forgive me for</i> <b>what i'm about to do?</b>
+            + <i style="font-weight: 300;">you know</i> <b>how we do it</b>
         </p>
-        <p>
+        <div class="flex" style="gap:1em">
+        <img src="/assets/svg/button.svg" class="my-button" title="My button (alt)!" style="margin-top: 1em;">
+        <img src="/assets/images/button.png" class="my-button" title="My button!" style="margin-top: 1em;">
+        <p style="text-align: right; opacity: 0.5;">
             <i style="font-weight: 300;">version</i><b style="display: inline-block; margin-left: 3em;">..?</b><br>
-            <b>13th</b> <i style="font-weight: 300;">iteration ++</i>
+            <b>13th</b> <i style="font-weight: 300;">iteration ++</i><br style="margin-bottom: 0.5em;">
         </p>
+        </div>
     </div>
+    <script src="/assets/js/global.js"></script>
 </body>
 </html>

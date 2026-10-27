@@ -60,6 +60,12 @@
         "artwork": "https://i1.sndcdn.com/artworks-ff86eea0-cfa4-448f-a759-6806719cc1e0-0-t500x500.jpg"
     },
     {
+        "artist": "Porter Robinson",
+        "title": "Worlds",
+        "url": "https://soundcloud.com/porter-robinson/sets/worlds-4",
+        "artwork": "https://i1.sndcdn.com/artworks-53zUiKBBz7i3-0-t1080x1080.jpg"
+    },
+    {
         "artist": "Skybreak",
         "title": "HALF BLOOD",
         "url":"https://soundcloud.com/skybreakofficial/sets/halfblood",
@@ -70,5 +76,11 @@
         "title": "U",
         "url":"https://soundcloud.com/underscores/sets/u-album",
         "artwork":"https://i1.sndcdn.com/artworks-JBulrtcxUaAlGmbS-t1r9rg-t500x500.jpg"
+    },
+    {
+        "artist": "Frost Children",
+        "title": "SISTER",
+        "url":"https://soundcloud.com/frostchildren/sets/sister-249277048",
+        "artwork":"https://i1.sndcdn.com/artworks-99a71f8b-8d86-4f46-846c-369e3ea57f1b-0-t500x500.jpg"
     }
 ]

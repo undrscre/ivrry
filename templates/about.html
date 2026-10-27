@@ -8,7 +8,7 @@
 <div class="about flex">
     <div class="about-shadow"></div>
     <div class="about-card">
-        <div class="about-header flex">
+        <div class="cool-header-common about-header flex">
             <img src="/assets/svg/Group 21.svg">
             <h1>Description</h1>
             <img src="/assets/svg/arrow.svg">
@@ -26,6 +26,32 @@
         </div>
     </div>
     <img class="about-vector" src="/assets/images/form69.png">
+</div>
+<div class="sonas">
+    <div class="cool-header-common sona-header flex">
+        <img src="/assets/svg/Group 22.svg">
+        <h1>Sona</h1>
+        <img src="/assets/svg/arrow.svg">
+    </div>
+    <img src="/assets/images/sona/clothful.png" width="100%" style="display: block;">
+</div>
+<div class="music">
+    <div class="cool-header-common music-header flex">
+        <img src="/assets/svg/Group 23.svg">
+        <h1>Music i like</h1>
+        <img srcc="/assets/svg/arrow.svg">
+    </div>
+    <div class="album-container">
+        <div class="albums">
+            {% for album in albums %}
+            <a href="{{album.url}}" class="album" target="_blank">
+                <img class="album-art" src="{{album.artwork}}" loading="lazy" 
+                data-title="<b>{{album.title}}</b> <br> by {{album.artist}}" 
+                title="{{album.title}} by {{album.artist}}">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 <div class="codeblock-thing">
     <p>// TODO: write something meaningful here later. page wip</p>

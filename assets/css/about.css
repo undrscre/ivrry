@@ -47,15 +47,40 @@
     filter: drop-shadow(30px 0px 0px #14141440)
 }
 
-.about-header {
+.cool-header-common {
     display: flex;
     align-items: center;
     gap:8px;
+    color:white;
+    background-color: #35262a;
+    padding-left:3em;
+    padding-right: 2em;
+    & h1 {margin:0.5em 0em;}
+    & img {width: 2em;}
+    & img:last-of-type {width: 1em;}
+}
+
+.about-header {
     position: relative;
     left:-4em;
     clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
     background-color: #262935;
     padding-left:4em;
+    
+}
+
+.sona-header {
+    background-color: #35262a;
+    padding-left:3em;
+    padding-right: 2em;
+    & h1 {margin:0.5em 0em;}
+    & img {width: 2em;}
+    & img:last-of-type {width: 1em;}
+}
+
+.music-header {
+    background-color: #2e2635;
+    padding-left:3em;
     padding-right: 2em;
     & h1 {margin:0.5em 0em;}
     & img {width: 2em;}
@@ -68,4 +93,59 @@
     color:#585B70;
     padding-left: 3em;
     & p {font-family: "DotGothic16"; margin:0;}
+}
+
+.album-container {
+    background-color: #2e263544;
+    overflow-x: scroll;
+    /* mask-image: linear-gradient(to right, white, white 90%, transparent); */
+}
+
+.albums {
+	display:flex;
+	/* width:calc(100% - 60px); */
+	justify-content: space-around;
+    /* gap:4em; */
+    width: 100%;
+    padding: 2em 4em;
+    /* padding-left: 6e    m; */
+	position:relative;
+    /* overflow: visible; */
+    /* padding:2em 4em; */
+    box-sizing: border-box;
+	perspective:1000px;
+}
+.album:last-of-type {
+    margin-right: 4em;
+}
+.album {
+	position:relative;
+	height: 150px;
+	width:0px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(25px);
+    display: flex;
+    perspective: inherit;
+	transition: .25s all;
+}
+.album-art {
+	width: 150px;
+	height:150px;
+	filter: saturate(0%) brightness(50%) invert(11%) sepia(42%) saturate(397%) hue-rotate(220deg) brightness(97%) contrast(98%);
+	position:absolute;
+	transform-origin: 50% 100%;
+	/* left:-70px; */
+	transform: rotateY(50deg);
+	transition: .25s all;
+    box-shadow: 0px 0px 10px black;
+}
+
+.album:hover {
+	perspective:800px;
+}
+.album:hover .album-art {
+	filter: saturate(100%) brightness(100%) invert(0%) sepia(0%) saturate(100%) hue-rotate(0deg) brightness(100%) contrast(100%);
+	transform: translateY(-25px) rotateY(30deg) rotateZ(-10deg) translateX(-20px);
+    box-shadow: 0px 0px 10px black;
 }
