@@ -28,7 +28,7 @@
                         <div class="airplane-header-icon">
                             <img src="/assets/svg/airplane-header.svg">
                         </div>
-                        <h1 class="airplane-header-title">ivrry.nekoweb.org</h1>
+                        <a href="/"><h1 class="airplane-header-title">ivrry.nekoweb.org</h1></a>
                     </div>
                     <div class="header-pagetitle">
                         <img class="pt-ca-1" src="/assets/svg/cool-arrow-2.svg">
@@ -117,7 +117,7 @@
             {% block content %}
             {% endblock %}
         </content>
-        <img src="/assets/svg/ivrry-sep.svg" width="100%">
+        <img src="/assets/svg/ivrry-sep.svg" width="100%" height="40">
     </div>
     <div class="footer">
         <p style="opacity: 0.5;">
@@ -125,10 +125,10 @@
             + <i style="font-weight: 300;">you know</i> <b>how we do it</b>
         </p>
         <div class="flex" style="gap:1em">
-        <img src="/assets/svg/button.svg" class="my-button" title="My button (alt)!" style="margin-top: 1em;">
-        <img src="/assets/images/button.png" class="my-button" title="My button!" style="margin-top: 1em;">
+        <img src="/assets/svg/button.svg" class="my-button" title="My button (alt)!" style="margin-top: 16px;">
+        <img src="/assets/images/button.png" class="my-button" title="My button!"    style="margin-top: 16px;">
         <p style="text-align: right; opacity: 0.5;">
-            <i style="font-weight: 300;">version</i><b style="display: inline-block; margin-left: 3em;">..?</b><br>
+            <i style="font-weight: 300;">version</i> <b style="display: inline-block;">{{commit.short_hash}}</b><br>
             <b>13th</b> <i style="font-weight: 300;">iteration ++</i><br style="margin-bottom: 0.5em;">
         </p>
         </div>

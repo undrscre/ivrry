@@ -69,7 +69,7 @@ header {
     align-items: center;
     gap:1em;
     width:100%;
-    & > h1 { margin: 0; }
+    & > a {text-decoration: none; & h1 { margin: 0;} &:hover { text-decoration: underline; }}
     & > .airplane-header-icon {
         padding:0.5em;
         background-color: #FCB900;

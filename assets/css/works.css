@@ -30,7 +30,7 @@
     align-items: center;
     overflow: clip;
     justify-content: center;
-    padding:0.5em;
+    padding:1.5em;
     /* aspect-ratio: 1; */
 
     &:has(.grid-full)::after {
@@ -68,6 +68,9 @@
     position: absolute;
     top:50%;
     left:50%;
+    pointer-events: none;
+    opacity: 0.5;
+    width: 120px;
     transform: translate(-50%, -50%) scale(0.5);
 }
 
@@ -111,6 +114,16 @@
     opacity: 0.4;
 }
 
+.deco-2 {
+    position: absolute;
+    left:0;
+    bottom:-500px;
+    width: 700px;
+    opacity: 0.4;
+    transform-origin: top right;
+    rotate: 90deg;
+}
+
 .fullscreen {
     padding:0;
 }
@@ -127,6 +140,7 @@
         object-fit: cover;
         aspect-ratio: 1;
         overflow: clip;
+        object-position: left;
         display: block;
     }
 }
