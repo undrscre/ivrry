@@ -23,7 +23,7 @@
         {
             "name":"bomberfish",
             "url":"https://bomberfish.ca",
-            "art":"https://bomberfish.ca/buttons/button.gif"
+            "art":"https://bomberfish.ca/button.gif"
         },
         {
             "name":"notfire",
@@ -119,6 +119,11 @@
             "name":"qiinr",
             "url":"https://qiinr.nekoweb.org",
             "art":"https://qiinr.nekoweb.org/artwork/BUTTON.gif"
+        },
+        {
+            "name":"doggypa.ws",
+            "url":"https://doggypa.ws",
+            "art":"https://doggypa.ws/links/assets/doggypaws.png"
         }
     ]
 }

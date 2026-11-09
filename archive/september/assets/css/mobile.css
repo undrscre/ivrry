@@ -1,0 +1,68 @@
+
+
+ @media only screen and (max-width: 870px) {
+    body {
+        justify-content: initial;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    main {
+        border: none;
+        background-color: transparent;
+        margin: 0;
+        width: 100%;
+        overflow: visible;
+        height: 100%;
+        box-shadow: none;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .art {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .show-mobile {
+        display: initial;
+    }
+
+    .albums {
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+
+    .expand-width-mobile {
+        width: 100% !important;
+    }
+
+    .expand-height-mobile {
+        height: 100% !important;
+    }
+
+    .row-mobile {
+        flex-direction: row;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lastfm {
+        flex-direction: column;
+    }
+}
